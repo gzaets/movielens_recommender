@@ -1,4 +1,4 @@
-# 289G
+# MovieLens Recommender
 
 Make sure to download and extract the datasets into the `data` directory.
 
