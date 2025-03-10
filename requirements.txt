@@ -1,0 +1,6 @@
+tensorflow
+tensorflow-recommenders
+pandas
+scikit-learn
+numpy
+preprocess
