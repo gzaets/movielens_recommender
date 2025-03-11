@@ -49,17 +49,7 @@ class TwoTowerModel(tfrs.models.Model):
 
 
 def df_to_tf_dataset(df, shuffle=True, batch_size=1024):
-    """
-    Convert a dictionary of features into a TensorFlow dataset.
-    
-    Args:
-        df: Dictionary with feature names as keys and feature data as values
-        shuffle: Whether to shuffle the dataset
-        batch_size: Size of batches for the dataset
-        
-    Returns:
-        tf.data.Dataset object
-    """
+
     ds = tf.data.Dataset.from_tensor_slices(dict(df))
     if shuffle:
         ds = ds.shuffle(buffer_size=len(list(df.values())[0]))
@@ -97,14 +87,15 @@ def compute_hit_rate(model, test_ds, candidate_ds, k_values):
                 hits[i] = 1
         hit_rate = np.mean(hits)
         hit_rates[k] = hit_rate
-        if k == 10:
-            ndcg = 0.0
-            for i, (prediction, label) in enumerate(zip(top_k_items, all_labels)):
-                if label in prediction:
-                    rank = np.where(prediction == label)[0][0] + 1
-                    ndcg += 1.0 / np.log2(rank + 1)
-            ndcg /= len(all_labels)
-            ndcg_values[k] = ndcg
+        
+        # Calculate NDCG for all k values
+        ndcg = 0.0
+        for i, (prediction, label) in enumerate(zip(top_k_items, all_labels)):
+            if label in prediction:
+                rank = np.where(prediction == label)[0][0] + 1
+                ndcg += 1.0 / np.log2(rank + 1)
+        ndcg /= len(all_labels)
+        ndcg_values[k] = ndcg
     return hit_rates, ndcg_values
 
 
@@ -194,7 +185,7 @@ if __name__ == "__main__":
     print("\n----- Hit Rate and NDCG Metrics -----")
     for k in k_values:
         print(f"Hit Rate (Top-{k}): {hit_rates[k]:.4f}")
-    print(f"NDCG (Top-10): {ndcg_values.get(10, 'Not available'):.4f}")
+        print(f"NDCG (Top-{k}): {ndcg_values[k]:.4f}")
     
     # Build index for recommendations
     index = tfrs.layers.factorized_top_k.BruteForce(model.user_model)

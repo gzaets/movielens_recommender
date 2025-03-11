@@ -1,0 +1,121 @@
+Ratings shape: (100000, 4)
+Users shape: (943, 5)
+Items shape: (1682, 24)
+Train size: 80000 Test size: 20000
+Number of cold users in test: 0
+Number of warm users in test: 940
+Training the model...
+Epoch 1/10
+
+[1m 1/79[0m [37m====================[0m [1m31s[0m 402ms/step - loss: 6.9313 - regularization_loss: 0.0000e+00 - total_loss: 6.9313
+[1m18/79[0m [32m====[0m[37m================[0m [1m0s[0m 3ms/step - loss: 6.9315 - regularization_loss: 0.0000e+00 - total_loss: 6.9315   
+[1m36/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m54/79[0m [32m=============[0m[37m=======[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m72/79[0m [32m==================[0m[37m==[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m79/79[0m [32m====================[0m[37m[0m [1m1s[0m 4ms/step - loss: 6.8796 - regularization_loss: 0.0000e+00 - total_loss: 6.8796 - val_loss: 6.2404 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2404
+Epoch 2/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 11ms/step - loss: 6.9274 - regularization_loss: 0.0000e+00 - total_loss: 6.9274
+[1m19/79[0m [32m====[0m[37m================[0m [1m0s[0m 3ms/step - loss: 6.9293 - regularization_loss: 0.0000e+00 - total_loss: 6.9293 
+[1m38/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9293 - regularization_loss: 0.0000e+00 - total_loss: 6.9293
+[1m58/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9291 - regularization_loss: 0.0000e+00 - total_loss: 6.9291
+[1m78/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.9287 - regularization_loss: 0.0000e+00 - total_loss: 6.9287
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8765 - regularization_loss: 0.0000e+00 - total_loss: 6.8765 - val_loss: 6.2379 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2379
+Epoch 3/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.9212 - regularization_loss: 0.0000e+00 - total_loss: 6.9212
+[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9225 - regularization_loss: 0.0000e+00 - total_loss: 6.9225 
+[1m39/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9206 - regularization_loss: 0.0000e+00 - total_loss: 6.9206
+[1m57/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9181 - regularization_loss: 0.0000e+00 - total_loss: 6.9181
+[1m76/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.9144 - regularization_loss: 0.0000e+00 - total_loss: 6.9144
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8615 - regularization_loss: 0.0000e+00 - total_loss: 6.8615 - val_loss: 6.2167 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2167
+Epoch 4/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.8869 - regularization_loss: 0.0000e+00 - total_loss: 6.8869
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.8850 - regularization_loss: 0.0000e+00 - total_loss: 6.8850 
+[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.8768 - regularization_loss: 0.0000e+00 - total_loss: 6.8768
+[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.8674 - regularization_loss: 0.0000e+00 - total_loss: 6.8674
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8048 - regularization_loss: 0.0000e+00 - total_loss: 6.8048 - val_loss: 6.1584 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1584
+Epoch 5/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 11ms/step - loss: 6.7972 - regularization_loss: 0.0000e+00 - total_loss: 6.7972
+[1m19/79[0m [32m====[0m[37m================[0m [1m0s[0m 3ms/step - loss: 6.7995 - regularization_loss: 0.0000e+00 - total_loss: 6.7995 
+[1m38/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.7894 - regularization_loss: 0.0000e+00 - total_loss: 6.7894
+[1m58/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.7789 - regularization_loss: 0.0000e+00 - total_loss: 6.7789
+[1m78/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.7683 - regularization_loss: 0.0000e+00 - total_loss: 6.7683
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.7154 - regularization_loss: 0.0000e+00 - total_loss: 6.7154 - val_loss: 6.0950 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0950
+Epoch 6/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 11ms/step - loss: 6.7028 - regularization_loss: 0.0000e+00 - total_loss: 6.7028
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.7115 - regularization_loss: 0.0000e+00 - total_loss: 6.7115 
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.7041 - regularization_loss: 0.0000e+00 - total_loss: 6.7041
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.6961 - regularization_loss: 0.0000e+00 - total_loss: 6.6961
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.6358 - regularization_loss: 0.0000e+00 - total_loss: 6.6358 - val_loss: 6.0440 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0440
+Epoch 7/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.6304 - regularization_loss: 0.0000e+00 - total_loss: 6.6304
+[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.6434 - regularization_loss: 0.0000e+00 - total_loss: 6.6434 
+[1m39/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.6385 - regularization_loss: 0.0000e+00 - total_loss: 6.6385
+[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.6331 - regularization_loss: 0.0000e+00 - total_loss: 6.6331
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5996 - regularization_loss: 0.0000e+00 - total_loss: 6.5996
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5733 - regularization_loss: 0.0000e+00 - total_loss: 6.5733 - val_loss: 6.0062 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0062
+Epoch 8/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.5740 - regularization_loss: 0.0000e+00 - total_loss: 6.5740
+[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5902 - regularization_loss: 0.0000e+00 - total_loss: 6.5902 
+[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5876 - regularization_loss: 0.0000e+00 - total_loss: 6.5876
+[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.5833 - regularization_loss: 0.0000e+00 - total_loss: 6.5833
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5508 - regularization_loss: 0.0000e+00 - total_loss: 6.5508
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5242 - regularization_loss: 0.0000e+00 - total_loss: 6.5242 - val_loss: 5.9785 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9785
+Epoch 9/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.5292 - regularization_loss: 0.0000e+00 - total_loss: 6.5292
+[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5476 - regularization_loss: 0.0000e+00 - total_loss: 6.5476
+[1m39/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.5458 - regularization_loss: 0.0000e+00 - total_loss: 6.5458
+[1m57/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.5432 - regularization_loss: 0.0000e+00 - total_loss: 6.5432
+[1m76/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.5391 - regularization_loss: 0.0000e+00 - total_loss: 6.5391
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4838 - regularization_loss: 0.0000e+00 - total_loss: 6.4838 - val_loss: 5.9577 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9577
+Epoch 10/10
+
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.4905 - regularization_loss: 0.0000e+00 - total_loss: 6.4905
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5118 - regularization_loss: 0.0000e+00 - total_loss: 6.5118 
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5117 - regularization_loss: 0.0000e+00 - total_loss: 6.5117
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5086 - regularization_loss: 0.0000e+00 - total_loss: 6.5086
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4495 - regularization_loss: 0.0000e+00 - total_loss: 6.4495 - val_loss: 5.9416 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9416
+Evaluating the model...
+
+[1m 1/20[0m [32m=[0m[37m===================[0m [1m0s[0m 6ms/step - loss: 6.6010 - regularization_loss: 0.0000e+00 - total_loss: 6.6010
+[1m20/20[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.5323 - regularization_loss: 0.0000e+00 - total_loss: 6.5323
+
+Evaluation loss: {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.941580295562744>, 'regularization_loss': <tf.Tensor: shape=(), dtype=int32, numpy=0>, 'total_loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.941580295562744>}
+
+Computing Hit Rate and NDCG metrics...
+
+----- Hit Rate and NDCG Metrics -----
+Hit Rate (Top-1): 0.0030
+NDCG (Top-1): 0.0030
+Hit Rate (Top-3): 0.0076
+NDCG (Top-3): 0.0056
+Hit Rate (Top-5): 0.0135
+NDCG (Top-5): 0.0079
+Hit Rate (Top-10): 0.0299
+NDCG (Top-10): 0.0132
+Item IDs tensor shape: (1653,)
+All item embeddings shape: (1653, 32)
+Successfully indexed embeddings!
+
+Recommendations for user 1
+Top 10 recommended items: ['184', '17', '675', '156', '209', '46', '47', '201', '959', '1209']
+This user has interacted with 0 items in the training set
+
+ID Mapping Examples:
+User: Original ID=1, Integer ID=1
+User: Original ID=10, Integer ID=2
+User: Original ID=100, Integer ID=3
+User: Original ID=101, Integer ID=4
+User: Original ID=102, Integer ID=5
+Item: Original ID=1, Integer ID=1
+Item: Original ID=10, Integer ID=2
+Item: Original ID=100, Integer ID=3
+Item: Original ID=1000, Integer ID=4
+Item: Original ID=1001, Integer ID=5
