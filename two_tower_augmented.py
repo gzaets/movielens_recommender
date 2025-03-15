@@ -61,6 +61,7 @@ def compute_hit_rate(model, test_ds, candidate_ds, k_values):
         all_labels.append(item_ids.numpy())
     all_predictions = np.vstack(all_predictions)
     all_labels = np.concatenate(all_labels)
+
     all_candidates = []
     all_candidate_ids = []
     for batch in candidate_ds:
@@ -69,9 +70,11 @@ def compute_hit_rate(model, test_ds, candidate_ds, k_values):
         all_candidate_ids.append(batch["item_id"].numpy())
     all_candidates = np.vstack(all_candidates)
     all_candidate_ids = np.concatenate(all_candidate_ids)
+
     scores = np.dot(all_predictions, all_candidates.T)
     hit_rates = {}
     ndcg_values = {}
+
     for k in k_values:
         top_k_indices = np.argsort(-scores, axis=1)[:, :k]
         top_k_items = all_candidate_ids[top_k_indices]
@@ -89,38 +92,31 @@ def compute_hit_rate(model, test_ds, candidate_ds, k_values):
                 ndcg += 1.0 / np.log2(rank + 1)
         ndcg /= len(all_labels)
         ndcg_values[k] = ndcg
+
     return hit_rates, ndcg_values
 
-# Function to add positive examples from training to augmented data
 def add_positive_examples(augmented_df, train_df, n_samples=50):
-    """Add some known positive examples from training data to augmented data"""
-    # Sample random rows from training data
     positive_samples = train_df.sample(n=min(n_samples, len(train_df)))
     return pd.concat([augmented_df, positive_samples], ignore_index=True)
 
 if __name__ == "__main__":
     train_df, test_df, users_df, items_df = featurize_movielens_100k()
     
-    # Load augmented data
     augmented_path = "augmented_data/ml-100k_augmented.csv"
     augmented_df = pd.read_csv(augmented_path)
     print(f"Loaded augmented data with {len(augmented_df)} entries")
     
-    # Ensure column names are consistent
     augmented_df = augmented_df.rename(columns={
         'user_id': 'user_id',
         'movie_id': 'item_id'
     })
     
-    # Clean IDs by removing decimal points
     augmented_df["user_id"] = augmented_df["user_id"].astype(str).str.replace('.0', '')
     augmented_df["item_id"] = augmented_df["item_id"].astype(str).str.replace('.0', '')
     
-    # Add known positive examples to augmented data
     print("Adding positive examples to augmented data...")
     augmented_df = add_positive_examples(augmented_df, train_df, n_samples=100)
     
-    # Create ID mappings
     unique_user_ids_str = sorted(pd.concat([
         train_df["user_id"].astype(str),
         augmented_df["user_id"].astype(str)
@@ -134,7 +130,6 @@ if __name__ == "__main__":
     user_id_map = {str_id: i + 1 for i, str_id in enumerate(unique_user_ids_str)}
     item_id_map = {str_id: i + 1 for i, str_id in enumerate(unique_item_ids_str)}
     
-    # Process each DataFrame individually
     train_df["user_id_mapped"] = train_df["user_id"].astype(str).map(user_id_map)
     train_df["item_id_mapped"] = train_df["item_id"].astype(str).map(item_id_map)
     train_df = train_df.dropna(subset=["user_id_mapped", "item_id_mapped"])
@@ -153,12 +148,10 @@ if __name__ == "__main__":
     augmented_df["user_id_int"] = augmented_df["user_id_mapped"].astype(np.int32)
     augmented_df["item_id_int"] = augmented_df["item_id_mapped"].astype(np.int32)
     
-    # Print data sizes after filtering
     print(f"Train size after filtering: {len(train_df)}")
     print(f"Test size after filtering: {len(test_df)}")
     print(f"Augmented size after filtering: {len(augmented_df)}")
     
-    # Create TensorFlow datasets
     train_ds = df_to_tf_dataset({
         "user_id": train_df["user_id_int"].values,
         "item_id": train_df["item_id_int"].values,
@@ -169,17 +162,11 @@ if __name__ == "__main__":
         "item_id": test_df["item_id_int"].values,
     }, shuffle=False, batch_size=1024)
     
-    augmented_ds = df_to_tf_dataset({
-        "user_id": augmented_df["user_id_int"].values,
-        "item_id": augmented_df["item_id_int"].values,
-    }, shuffle=False, batch_size=1024)
-    
     num_users = max(user_id_map.values())
     num_items = max(item_id_map.values())
     print(f"Number of unique users: {num_users}")
     print(f"Number of unique items: {num_items}")
     
-    # Create the model
     embedding_dim = 32
     user_model = UserModel(num_users, embedding_dim=embedding_dim)
     item_model = ItemModel(num_items, embedding_dim=embedding_dim)
@@ -196,12 +183,12 @@ if __name__ == "__main__":
     )
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001))
     
-    print("Training the model...")
+    print("Training the model on the original training dataset...")
     model.fit(train_ds, validation_data=test_ds, epochs=10)
     
     print("Evaluating on original test data...")
-    loss = model.evaluate(test_ds, return_dict=True)
-    print("\nOriginal test evaluation loss:", loss)
+    loss_result = model.evaluate(test_ds, return_dict=True)
+    print("\nOriginal test evaluation loss:", loss_result)
     
     k_values = [1, 3, 5, 10]
     hit_rates, ndcg_values = compute_hit_rate(model, test_ds, candidates, k_values)
@@ -210,20 +197,9 @@ if __name__ == "__main__":
         print(f"Hit Rate (Top-{k}): {hit_rates[k]:.4f}")
         print(f"NDCG (Top-{k}): {ndcg_values[k]:.4f}")
     
-    print("\nEvaluating on augmented data...")
-    aug_loss = model.evaluate(augmented_ds, return_dict=True)
-    print("\nAugmented data evaluation loss:", aug_loss)
-    
-    aug_hit_rates, aug_ndcg_values = compute_hit_rate(model, augmented_ds, candidates, k_values)
-    print("\n----- Augmented Data Metrics -----")
-    for k in k_values:
-        print(f"Hit Rate (Top-{k}): {aug_hit_rates[k]:.4f}")
-        print(f"NDCG (Top-{k}): {aug_ndcg_values[k]:.4f}")
-    
     print("\nBuilding recommendation index...")
     index = tfrs.layers.factorized_top_k.BruteForce(model.user_model)
     
-    # Process item embeddings in batches
     item_ids_tensor = tf.constant(np.arange(1, num_items + 1, dtype=np.int32))
     all_item_embeddings = []
     batch_size = 256
@@ -247,28 +223,15 @@ if __name__ == "__main__":
         )
         print("Successfully indexed embeddings!")
         
-        # Create reverse mapping for display
         id_to_str_map = {v: k for k, v in item_id_map.items()}
         
-        # Generate recommendations for sample users
         sample_user_id = user_id_map[unique_user_ids_str[0]]
         sample_user_tensor = tf.constant([sample_user_id], dtype=tf.int32)
         _, top_item_ids = index({"user_id": sample_user_tensor}, k=10)
-        top_item_str_ids = [id_to_str_map.get(int(id), "Unknown") for id in top_item_ids.numpy()[0]]
-        print("\nRecommendations for original user", unique_user_ids_str[0])
+        top_item_str_ids = [id_to_str_map.get(int(x), "Unknown") for x in top_item_ids.numpy()[0]]
+        print("\nRecommendations for example user", unique_user_ids_str[0])
         print("Top 10 recommended items:", top_item_str_ids)
         
-        # Generate recommendations for augmented users
-        aug_users = augmented_df["user_id"].unique()
-        if len(aug_users) > 0:
-            aug_user = aug_users[0]
-            if aug_user in user_id_map:
-                aug_user_id = user_id_map[aug_user]
-                aug_user_tensor = tf.constant([aug_user_id], dtype=tf.int32)
-                _, aug_top_item_ids = index({"user_id": aug_user_tensor}, k=10)
-                aug_top_item_str_ids = [id_to_str_map.get(int(id), "Unknown") for id in aug_top_item_ids.numpy()[0]]
-                print("\nRecommendations for augmented user", aug_user)
-                print("Top 10 recommended items:", aug_top_item_str_ids)
     except Exception as e:
         print("Error in indexing or recommendation:", e)
         import traceback
@@ -276,6 +239,8 @@ if __name__ == "__main__":
     
     print("\nID Mapping Examples:")
     for i in range(min(5, len(unique_user_ids_str))):
-        print(f"User: Original ID={unique_user_ids_str[i]}, Integer ID={user_id_map.get(unique_user_ids_str[i], 'Not mapped')}")
+        print(f"User: Original ID={unique_user_ids_str[i]}, "
+              f"Integer ID={user_id_map.get(unique_user_ids_str[i], 'Not mapped')}")
     for i in range(min(5, len(unique_item_ids_str))):
-        print(f"Item: Original ID={unique_item_ids_str[i]}, Integer ID={item_id_map.get(unique_item_ids_str[i], 'Not mapped')}")
+        print(f"Item: Original ID={unique_item_ids_str[i]}, "
+              f"Integer ID={item_id_map.get(unique_item_ids_str[i], 'Not mapped')}")

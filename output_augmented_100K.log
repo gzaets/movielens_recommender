@@ -11,126 +11,103 @@ Test size after filtering: 19969
 Augmented size after filtering: 1043
 Number of unique users: 943
 Number of unique items: 1653
-Training the model...
+Training the model on the original training dataset...
 Epoch 1/10
 
-[1m 1/79[0m [37m====================[0m [1m32s[0m 422ms/step - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-[1m19/79[0m [32m====[0m[37m================[0m [1m0s[0m 3ms/step - loss: 6.9315 - regularization_loss: 0.0000e+00 - total_loss: 6.9315   
-[1m37/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9315 - regularization_loss: 0.0000e+00 - total_loss: 6.9315
-[1m55/79[0m [32m=============[0m[37m=======[0m [1m0s[0m 3ms/step - loss: 6.9315 - regularization_loss: 0.0000e+00 - total_loss: 6.9315
-[1m74/79[0m [32m==================[0m[37m==[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m 1/79[0m [37m====================[0m [1m30s[0m 386ms/step - loss: 6.9314 - regularization_loss: 0.0000e+00 - total_loss: 6.9314
+[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316   
+[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
 [1m79/79[0m [32m====================[0m[37m[0m [1m1s[0m 4ms/step - loss: 6.8796 - regularization_loss: 0.0000e+00 - total_loss: 6.8796 - val_loss: 6.2406 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2406
 Epoch 2/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 11ms/step - loss: 6.9273 - regularization_loss: 0.0000e+00 - total_loss: 6.9273
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9293 - regularization_loss: 0.0000e+00 - total_loss: 6.9293 
-[1m38/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
-[1m57/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9293 - regularization_loss: 0.0000e+00 - total_loss: 6.9293
-[1m76/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.9290 - regularization_loss: 0.0000e+00 - total_loss: 6.9290
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8768 - regularization_loss: 0.0000e+00 - total_loss: 6.8768 - val_loss: 6.2386 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2386
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.9275 - regularization_loss: 0.0000e+00 - total_loss: 6.9275
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.9292 - regularization_loss: 0.0000e+00 - total_loss: 6.9292
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8767 - regularization_loss: 0.0000e+00 - total_loss: 6.8767 - val_loss: 6.2388 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2388
 Epoch 3/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.9224 - regularization_loss: 0.0000e+00 - total_loss: 6.9224
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9238 - regularization_loss: 0.0000e+00 - total_loss: 6.9238 
-[1m38/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.9227 - regularization_loss: 0.0000e+00 - total_loss: 6.9227
-[1m57/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9208 - regularization_loss: 0.0000e+00 - total_loss: 6.9208
-[1m75/79[0m [32m==================[0m[37m==[0m [1m0s[0m 3ms/step - loss: 6.9184 - regularization_loss: 0.0000e+00 - total_loss: 6.9184
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8653 - regularization_loss: 0.0000e+00 - total_loss: 6.8653 - val_loss: 6.2219 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2219
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.9220 - regularization_loss: 0.0000e+00 - total_loss: 6.9220
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9233 - regularization_loss: 0.0000e+00 - total_loss: 6.9233 
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9215 - regularization_loss: 0.0000e+00 - total_loss: 6.9215
+[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9192 - regularization_loss: 0.0000e+00 - total_loss: 6.9192
+[1m76/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.9163 - regularization_loss: 0.0000e+00 - total_loss: 6.9163
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8633 - regularization_loss: 0.0000e+00 - total_loss: 6.8633 - val_loss: 6.2208 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2208
 Epoch 4/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.8968 - regularization_loss: 0.0000e+00 - total_loss: 6.8968
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.8948 - regularization_loss: 0.0000e+00 - total_loss: 6.8948 
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.8876 - regularization_loss: 0.0000e+00 - total_loss: 6.8876
-[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.8795 - regularization_loss: 0.0000e+00 - total_loss: 6.8795
-[1m78/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.8704 - regularization_loss: 0.0000e+00 - total_loss: 6.8704
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8174 - regularization_loss: 0.0000e+00 - total_loss: 6.8174 - val_loss: 6.1654 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1654
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.8921 - regularization_loss: 0.0000e+00 - total_loss: 6.8921
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.8899 - regularization_loss: 0.0000e+00 - total_loss: 6.8899
+[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.8819 - regularization_loss: 0.0000e+00 - total_loss: 6.8819
+[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.8730 - regularization_loss: 0.0000e+00 - total_loss: 6.8730
+[1m78/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.8628 - regularization_loss: 0.0000e+00 - total_loss: 6.8628
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8100 - regularization_loss: 0.0000e+00 - total_loss: 6.8100 - val_loss: 6.1638 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1638
 Epoch 5/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.8150 - regularization_loss: 0.0000e+00 - total_loss: 6.8150
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.8122 - regularization_loss: 0.0000e+00 - total_loss: 6.8122 
-[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.8004 - regularization_loss: 0.0000e+00 - total_loss: 6.8004
-[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.7887 - regularization_loss: 0.0000e+00 - total_loss: 6.7887
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.7243 - regularization_loss: 0.0000e+00 - total_loss: 6.7243 - val_loss: 6.0936 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0936
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.8056 - regularization_loss: 0.0000e+00 - total_loss: 6.8056
+[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.8027 - regularization_loss: 0.0000e+00 - total_loss: 6.8027
+[1m43/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 2ms/step - loss: 6.7897 - regularization_loss: 0.0000e+00 - total_loss: 6.7897
+[1m64/79[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.7783 - regularization_loss: 0.0000e+00 - total_loss: 6.7783
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.7169 - regularization_loss: 0.0000e+00 - total_loss: 6.7169 - val_loss: 6.0962 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0962
 Epoch 6/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.7094 - regularization_loss: 0.0000e+00 - total_loss: 6.7094
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.7132 - regularization_loss: 0.0000e+00 - total_loss: 6.7132 
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.7049 - regularization_loss: 0.0000e+00 - total_loss: 6.7049
-[1m62/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.6959 - regularization_loss: 0.0000e+00 - total_loss: 6.6959
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.6350 - regularization_loss: 0.0000e+00 - total_loss: 6.6350 - val_loss: 6.0394 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0394
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.7050 - regularization_loss: 0.0000e+00 - total_loss: 6.7050
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.7101 - regularization_loss: 0.0000e+00 - total_loss: 6.7101
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.7016 - regularization_loss: 0.0000e+00 - total_loss: 6.7016
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.6929 - regularization_loss: 0.0000e+00 - total_loss: 6.6929
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.6322 - regularization_loss: 0.0000e+00 - total_loss: 6.6322 - val_loss: 6.0440 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0440
 Epoch 7/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.6289 - regularization_loss: 0.0000e+00 - total_loss: 6.6289
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.6391 - regularization_loss: 0.0000e+00 - total_loss: 6.6391 
-[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.6346 - regularization_loss: 0.0000e+00 - total_loss: 6.6346
-[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.6290 - regularization_loss: 0.0000e+00 - total_loss: 6.6290
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5689 - regularization_loss: 0.0000e+00 - total_loss: 6.5689 - val_loss: 6.0016 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0016
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.6297 - regularization_loss: 0.0000e+00 - total_loss: 6.6297
+[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.6385 - regularization_loss: 0.0000e+00 - total_loss: 6.6385 
+[1m43/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 2ms/step - loss: 6.6322 - regularization_loss: 0.0000e+00 - total_loss: 6.6322
+[1m63/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 2ms/step - loss: 6.6274 - regularization_loss: 0.0000e+00 - total_loss: 6.6274
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5684 - regularization_loss: 0.0000e+00 - total_loss: 6.5684 - val_loss: 6.0069 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0069
 Epoch 8/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.5721 - regularization_loss: 0.0000e+00 - total_loss: 6.5721
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5842 - regularization_loss: 0.0000e+00 - total_loss: 6.5842
-[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5825 - regularization_loss: 0.0000e+00 - total_loss: 6.5825
-[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5786 - regularization_loss: 0.0000e+00 - total_loss: 6.5786
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5192 - regularization_loss: 0.0000e+00 - total_loss: 6.5192 - val_loss: 5.9742 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9742
+[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.5728 - regularization_loss: 0.0000e+00 - total_loss: 6.5728
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5855 - regularization_loss: 0.0000e+00 - total_loss: 6.5855
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5827 - regularization_loss: 0.0000e+00 - total_loss: 6.5827
+[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5784 - regularization_loss: 0.0000e+00 - total_loss: 6.5784
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5192 - regularization_loss: 0.0000e+00 - total_loss: 6.5192 - val_loss: 5.9801 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9801
 Epoch 9/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.5261 - regularization_loss: 0.0000e+00 - total_loss: 6.5261
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5418 - regularization_loss: 0.0000e+00 - total_loss: 6.5418
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5415 - regularization_loss: 0.0000e+00 - total_loss: 6.5415
-[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5382 - regularization_loss: 0.0000e+00 - total_loss: 6.5382
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4793 - regularization_loss: 0.0000e+00 - total_loss: 6.4793 - val_loss: 5.9535 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9535
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.5264 - regularization_loss: 0.0000e+00 - total_loss: 6.5264
+[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5429 - regularization_loss: 0.0000e+00 - total_loss: 6.5429 
+[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5416 - regularization_loss: 0.0000e+00 - total_loss: 6.5416
+[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5378 - regularization_loss: 0.0000e+00 - total_loss: 6.5378
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4792 - regularization_loss: 0.0000e+00 - total_loss: 6.4792 - val_loss: 5.9601 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9601
 Epoch 10/10
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.4893 - regularization_loss: 0.0000e+00 - total_loss: 6.4893
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5068 - regularization_loss: 0.0000e+00 - total_loss: 6.5068
-[1m39/79[0m [32m=========[0m[37m===========[0m [1m0s[0m 3ms/step - loss: 6.5070 - regularization_loss: 0.0000e+00 - total_loss: 6.5070
-[1m57/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.5054 - regularization_loss: 0.0000e+00 - total_loss: 6.5054
-[1m75/79[0m [32m==================[0m[37m==[0m [1m0s[0m 3ms/step - loss: 6.5031 - regularization_loss: 0.0000e+00 - total_loss: 6.5031
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 4ms/step - loss: 6.4460 - regularization_loss: 0.0000e+00 - total_loss: 6.4460 - val_loss: 5.9374 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9374
+[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.4881 - regularization_loss: 0.0000e+00 - total_loss: 6.4881
+[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.5076 - regularization_loss: 0.0000e+00 - total_loss: 6.5076 
+[1m42/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5067 - regularization_loss: 0.0000e+00 - total_loss: 6.5067
+[1m62/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5046 - regularization_loss: 0.0000e+00 - total_loss: 6.5046
+[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4455 - regularization_loss: 0.0000e+00 - total_loss: 6.4455 - val_loss: 5.9449 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9449
 Evaluating on original test data...
 
-[1m 1/20[0m [32m=[0m[37m===================[0m [1m0s[0m 7ms/step - loss: 6.5971 - regularization_loss: 0.0000e+00 - total_loss: 6.5971
-[1m20/20[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5311 - regularization_loss: 0.0000e+00 - total_loss: 6.5311
+[1m 1/20[0m [32m=[0m[37m===================[0m [1m0s[0m 5ms/step - loss: 6.5939 - regularization_loss: 0.0000e+00 - total_loss: 6.5939
+[1m20/20[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.5283 - regularization_loss: 0.0000e+00 - total_loss: 6.5283
 
-Original test evaluation loss: {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.937411785125732>, 'regularization_loss': <tf.Tensor: shape=(), dtype=int32, numpy=0>, 'total_loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.937411785125732>}
+Original test evaluation loss: {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.944903373718262>, 'regularization_loss': <tf.Tensor: shape=(), dtype=int32, numpy=0>, 'total_loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.944903373718262>}
 
 ----- Original Test Data Metrics -----
-Hit Rate (Top-1): 0.0026
-NDCG (Top-1): 0.0026
-Hit Rate (Top-3): 0.0078
+Hit Rate (Top-1): 0.0024
+NDCG (Top-1): 0.0024
+Hit Rate (Top-3): 0.0079
 NDCG (Top-3): 0.0055
-Hit Rate (Top-5): 0.0129
-NDCG (Top-5): 0.0076
-Hit Rate (Top-10): 0.0270
-NDCG (Top-10): 0.0121
-
-Evaluating on augmented data...
-
-[1m1/2[0m [32m==========[0m[37m==========[0m [1m0s[0m 11ms/step - loss: 7.2817 - regularization_loss: 0.0000e+00 - total_loss: 7.2817
-[1m2/2[0m [32m====================[0m[37m[0m [1m0s[0m 4ms/step - loss: 4.1729 - regularization_loss: 0.0000e+00 - total_loss: 4.1729 
-
-Augmented data evaluation loss: {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=2.6184775829315186>, 'regularization_loss': <tf.Tensor: shape=(), dtype=int32, numpy=0>, 'total_loss': <tf.Tensor: shape=(), dtype=float32, numpy=2.6184775829315186>}
-
------ Augmented Data Metrics -----
-Hit Rate (Top-1): 0.0010
-NDCG (Top-1): 0.0010
-Hit Rate (Top-3): 0.0038
-NDCG (Top-3): 0.0024
-Hit Rate (Top-5): 0.0077
-NDCG (Top-5): 0.0040
-Hit Rate (Top-10): 0.0173
-NDCG (Top-10): 0.0071
+Hit Rate (Top-5): 0.0150
+NDCG (Top-5): 0.0084
+Hit Rate (Top-10): 0.0291
+NDCG (Top-10): 0.0129
 
 Building recommendation index...
 Item IDs tensor shape: (1653,)
 All item embeddings shape: (1653, 32)
 Successfully indexed embeddings!
 
-Recommendations for original user 1
-Top 10 recommended items: ['156', '184', '47', '169', '214', '42', '128', '160', '67', '163']
-
-Recommendations for augmented user 1
-Top 10 recommended items: ['156', '184', '47', '169', '214', '42', '128', '160', '67', '163']
+Recommendations for example user 1
+Top 10 recommended items: ['184', '17', '47', '39', '42', '789', '101', '128', '92', '217']
 
 ID Mapping Examples:
 User: Original ID=1, Integer ID=1
