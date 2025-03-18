@@ -3,12 +3,19 @@ import tensorflow_recommenders as tfrs
 from tensorflow.keras import layers
 import pandas as pd
 import numpy as np
-import os
 from featurize import featurize_movielens_100k
-from preprocess import create_negative_samples
+
+def df_to_tf_dataset(df, shuffle=True, batch_size=1024):
+    """Convert a Pandas DataFrame into a tf.data.Dataset for training."""
+    ds = tf.data.Dataset.from_tensor_slices(dict(df))
+    if shuffle:
+        ds = ds.shuffle(buffer_size=len(df))
+    ds = ds.batch(batch_size)
+    return ds
 
 class UserModel(tf.keras.Model):
-    def __init__(self, num_users, embedding_dim=32):
+    """User tower of Two-Tower Model."""
+    def __init__(self, num_users, embedding_dim=16):
         super().__init__()
         self.user_embedding = layers.Embedding(
             input_dim=num_users + 1,
@@ -16,11 +23,11 @@ class UserModel(tf.keras.Model):
         )
 
     def call(self, inputs):
-        user_id = inputs["user_id"]
-        return self.user_embedding(user_id)
+        return self.user_embedding(inputs["user_id"])
 
 class ItemModel(tf.keras.Model):
-    def __init__(self, num_items, embedding_dim=32):
+    """Item tower of Two-Tower Model."""
+    def __init__(self, num_items, embedding_dim=16):
         super().__init__()
         self.item_embedding = layers.Embedding(
             input_dim=num_items + 1,
@@ -28,15 +35,14 @@ class ItemModel(tf.keras.Model):
         )
 
     def call(self, inputs):
-        item_id = inputs["item_id"]
-        return self.item_embedding(item_id)
+        return self.item_embedding(inputs["item_id"])
 
 class TwoTowerModel(tfrs.models.Model):
+    """Two-Tower retrieval model with TFRS."""
     def __init__(self, user_model, item_model, loss):
         super().__init__()
         self.user_model = user_model
         self.item_model = item_model
-        self.loss = loss
         self.task = tfrs.tasks.Retrieval(loss=loss)
 
     def compute_loss(self, features, training=False):
@@ -44,167 +50,144 @@ class TwoTowerModel(tfrs.models.Model):
         item_embeddings = self.item_model(features)
         return self.task(user_embeddings, item_embeddings)
 
-def df_to_tf_dataset(df, shuffle=True, batch_size=1024):
-    ds = tf.data.Dataset.from_tensor_slices(dict(df))
-    if shuffle:
-        ds = ds.shuffle(buffer_size=len(df))
-    ds = ds.batch(batch_size)
-    return ds
+def evaluate_with_negative_sampling(model, test_df, train_df, num_items, K_values=[1, 3, 5, 10], num_neg=99, seed=42):
+    """Evaluates Hit Rate and NDCG using 'Leave-One-Out + Negative Sampling'."""
+    rng = np.random.default_rng(seed)
 
-def compute_hit_rate(model, test_ds, candidate_ds, k_values):
-    all_user_embs = []
-    all_labels = []
-    
-    for batch in test_ds:
-        user_embs = model.user_model(batch)
-        item_ids = batch["item_id"]
-        all_user_embs.append(user_embs.numpy())
-        all_labels.append(item_ids.numpy())
-    all_user_embs = np.vstack(all_user_embs)
-    all_labels = np.concatenate(all_labels)
+    users_in_test = list(set(test_df["user_id_int"]))
 
-    all_item_embs = []
-    all_item_ids = []
-    for batch in candidate_ds:
-        emb = model.item_model(batch)
-        all_item_embs.append(emb.numpy())
-        all_item_ids.append(batch["item_id"].numpy())
-    all_item_embs = np.vstack(all_item_embs)
-    all_item_ids = np.concatenate(all_item_ids)
+    # Gather all items seen in training or test (per user)
+    user_seen_items = {}
+    for df in [train_df, test_df]:
+        for row in df.itertuples():
+            user_seen_items.setdefault(row.user_id_int, set()).add(row.item_id_int)
 
-    scores = np.dot(all_user_embs, all_item_embs.T)
+    # Prepare accumulators
+    hr_acc = {k: 0.0 for k in K_values}
+    ndcg_acc = {k: 0.0 for k in K_values}
 
-    hit_rates = {}
-    ndcg_values = {}
+    def dcg_at_k(ranked_items, rel_item, k):
+        """Compute DCG if rel_item is found within top k."""
+        for i, it in enumerate(ranked_items[:k]):
+            if it == rel_item:
+                return 1.0 / np.log2(i + 2)
+        return 0.0
 
-    for k in k_values:
-        top_k_indices = np.argsort(-scores, axis=1)[:, :k]  
-        top_k_items = all_item_ids[top_k_indices]
+    def idcg_at_k(k):
+        """Ideal DCG is 1.0 since there's only one positive item per user."""
+        return 1.0
 
-        hits = np.zeros(len(all_labels))
-        for i, (predicted_items, true_item) in enumerate(zip(top_k_items, all_labels)):
-            if true_item in predicted_items:
-                hits[i] = 1.0
-        hit_rate = np.mean(hits)
-        hit_rates[k] = hit_rate
-        
-        ndcg = 0.0
-        for i, (predicted_items, true_item) in enumerate(zip(top_k_items, all_labels)):
-            if true_item in predicted_items:
-                rank = np.where(predicted_items == true_item)[0][0] + 1
-                ndcg += 1.0 / np.log2(rank + 1)
-        ndcg /= len(all_labels)
-        ndcg_values[k] = ndcg
+    for user_id in users_in_test:
+        # We assume there's only 1 item per user in test (common in "leave-one-out")
+        test_items = test_df[test_df["user_id_int"] == user_id]["item_id_int"].unique()
+        if len(test_items) == 0:
+            continue
+        positive_item = test_items[0]
 
-    return hit_rates, ndcg_values
+        seen = user_seen_items.get(user_id, set())
+        all_candidates = np.arange(1, num_items + 1)
+        valid_negatives = np.setdiff1d(all_candidates, list(seen), assume_unique=True)
 
-def train_and_evaluate(train_df, test_df, num_users, num_items, embedding_dim=32, epochs=10):
-    train_ds = df_to_tf_dataset({
-        "user_id": train_df["user_id_int"].values,
-        "item_id": train_df["item_id_int"].values,
-    }, shuffle=True, batch_size=1024)
+        # If we can't even find `num_neg` unique negatives, skip
+        if len(valid_negatives) < num_neg:
+            continue
 
-    test_ds = df_to_tf_dataset({
-        "user_id": test_df["user_id_int"].values,
-        "item_id": test_df["item_id_int"].values,
-    }, shuffle=False, batch_size=1024)
+        negatives = rng.choice(valid_negatives, size=num_neg, replace=False)
+        candidates = np.concatenate(([positive_item], negatives))
 
-    user_model = UserModel(num_users, embedding_dim=embedding_dim)
-    item_model = ItemModel(num_items, embedding_dim=embedding_dim)
+        # Get model scores
+        user_emb = model.user_model({"user_id": tf.constant([user_id], dtype=tf.int32)})
+        item_embs = model.item_model({"item_id": tf.constant(candidates, dtype=tf.int32)})
+        scores = tf.reduce_sum(user_emb * item_embs, axis=1).numpy()
 
-    candidates_ds = tf.data.Dataset.from_tensor_slices({
-        "item_id": np.arange(1, num_items + 1, dtype=np.int32)
-    }).batch(128)
+        # Sort in descending order
+        ranked_items = candidates[np.argsort(-scores)]
 
-    loss_fn = tf.keras.losses.CategoricalCrossentropy(from_logits=True)
-    model = TwoTowerModel(
-        user_model=user_model,
-        item_model=item_model,
-        loss=loss_fn
-    )
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001))
-    model.fit(train_ds, epochs=epochs, verbose=1)
+        for k in K_values:
+            # Hit Rate
+            if positive_item in ranked_items[:k]:
+                hr_acc[k] += 1.0
+            # NDCG
+            ndcg_acc[k] += dcg_at_k(ranked_items, positive_item, k) / idcg_at_k(k)
 
-    hit_rates, ndcg_values = compute_hit_rate(model, test_ds, candidates_ds, k_values=[3,5])
-    return hit_rates, ndcg_values
+    num_users_eval = len(users_in_test)
+    if num_users_eval > 0:
+        for k in K_values:
+            hr_acc[k] /= num_users_eval
+            ndcg_acc[k] /= num_users_eval
+
+    return hr_acc, ndcg_acc
 
 if __name__ == "__main__":
+    # 1) Load MovieLens-100k
     train_df, test_df, users_df, items_df = featurize_movielens_100k()
+    print(f"Original train size: {len(train_df)}; test size: {len(test_df)}")
 
-    unique_user_ids_str = sorted(train_df["user_id"].astype(str).unique())
-    unique_item_ids_str = sorted(train_df["item_id"].astype(str).unique())
-    user_id_map = {str_id: i+1 for i, str_id in enumerate(unique_user_ids_str)}
-    item_id_map = {str_id: i+1 for i, str_id in enumerate(unique_item_ids_str)}
+    # 2) Map user_id and item_id to integer IDs
+    unique_user_ids_str = sorted(set(train_df["user_id"].astype(str)).union(set(test_df["user_id"].astype(str))))
+    unique_item_ids_str = sorted(set(train_df["item_id"].astype(str)).union(set(test_df["item_id"].astype(str))))
 
-    train_df["user_id_int"] = train_df["user_id"].astype(str).map(user_id_map)
-    train_df["item_id_int"] = train_df["item_id"].astype(str).map(item_id_map)
-    test_df["user_id_int"] = test_df["user_id"].astype(str).map(user_id_map)
-    test_df["item_id_int"] = test_df["item_id"].astype(str).map(item_id_map)
+    user_id_map = {uid_str: i + 1 for i, uid_str in enumerate(unique_user_ids_str)}
+    item_id_map = {iid_str: i + 1 for i, iid_str in enumerate(unique_item_ids_str)}
 
-    train_df.dropna(subset=["user_id_int", "item_id_int"], inplace=True)
-    test_df.dropna(subset=["user_id_int", "item_id_int"], inplace=True)
+    train_df["user_id_int"] = train_df["user_id"].astype(str).map(user_id_map).astype(np.int32)
+    test_df["user_id_int"] = test_df["user_id"].astype(str).map(user_id_map).astype(np.int32)
+    train_df["item_id_int"] = train_df["item_id"].astype(str).map(item_id_map).astype(np.int32)
+    test_df["item_id_int"] = test_df["item_id"].astype(str).map(item_id_map).astype(np.int32)
 
-    train_df["user_id_int"] = train_df["user_id_int"].astype(np.int32)
-    train_df["item_id_int"] = train_df["item_id_int"].astype(np.int32)
-    test_df["user_id_int"] = test_df["user_id_int"].astype(np.int32)
-    test_df["item_id_int"] = test_df["item_id_int"].astype(np.int32)
+    num_users = len(user_id_map)
+    num_items = len(item_id_map)
 
-    num_users = len(unique_user_ids_str)
-    num_items = len(unique_item_ids_str)
+    # 3) Randomly pick 20% of the users to be cold
+    rng = np.random.default_rng(42)
+    all_user_ids = list(train_df["user_id_int"].unique())
+    cold_count = int(0.20 * len(all_user_ids))
+    cold_users = rng.choice(all_user_ids, size=cold_count, replace=False)
 
-    all_user_ids = train_df["user_id_int"].unique()
-    rng = np.random.default_rng(seed=42)
-    cold_user_count = int(0.2 * len(all_user_ids))  
-    cold_users = rng.choice(all_user_ids, size=cold_user_count, replace=False)
-
-    train_df_cold = []
-    non_cold_df = train_df[~train_df["user_id_int"].isin(cold_users)]
-    train_df_cold.append(non_cold_df)
+    # 4) For cold users, keep only 1 interaction in the training data
     cold_df = train_df[train_df["user_id_int"].isin(cold_users)]
-    cold_df_one = cold_df.groupby("user_id_int").apply(lambda x: x.sample(1, random_state=42))
-    cold_df_one.reset_index(drop=True, inplace=True)
-    train_df_cold.append(cold_df_one)
-    train_df_cold = pd.concat(train_df_cold, ignore_index=True)
+    non_cold_df = train_df[~train_df["user_id_int"].isin(cold_users)]
 
-    print("\n=== Training with cold users (only 1 interaction each) ===")
-    hit_rates_1, ndcg_values_1 = train_and_evaluate(
-        train_df_cold, test_df, num_users, num_items, embedding_dim=32, epochs=5
-    )
-    print("Results (Cold Users, 1 Interaction):")
-    for k in [3,5]:
-        print(f"HR@{k} = {hit_rates_1[k]:.4f}, NDCG@{k} = {ndcg_values_1[k]:.4f}")
+    # groupby user => pick exactly one row per user
+    def pick_single_interaction(group):
+        return group.sample(1, random_state=42)
 
-    synthetic_rows = []
-    user_groups = cold_df.groupby("user_id_int")
-    for uid, group in user_groups:
-        original_items = group["item_id_int"].unique()
-        possible_items = np.setdiff1d(all_user_ids, original_items)
-        all_item_ids = np.arange(1, num_items + 1)
-        possible_items = np.setdiff1d(all_item_ids, original_items)
-        if len(possible_items) > 0:
-            new_item = rng.choice(possible_items, size=1)[0]
-            synthetic_rows.append({
-                "user_id_int": uid,
-                "item_id_int": new_item,
-                "user_id": str(uid),
-                "item_id": str(new_item)
-            })
+    cold_df_single = cold_df.groupby("user_id_int", as_index=False).apply(pick_single_interaction)
+    # groupby(...).apply(...) can produce multi-index, so fix it
+    cold_df_single.reset_index(drop=True, inplace=True)
 
-    synthetic_df = pd.DataFrame(synthetic_rows)
-    train_df_cold_aug = pd.concat([train_df_cold, synthetic_df], ignore_index=True)
+    # Reassemble our "reduced" training set
+    reduced_train_df = pd.concat([non_cold_df, cold_df_single], ignore_index=True)
+    print(f"Reduced train size: {len(reduced_train_df)}")
 
-    print("\n=== Training with cold users (1 real + 1 synthetic interaction) ===")
-    hit_rates_2, ndcg_values_2 = train_and_evaluate(
-        train_df_cold_aug, test_df, num_users, num_items, embedding_dim=32, epochs=5
-    )
-    print("Results (Cold Users, +1 Synthetic):")
-    for k in [3,5]:
-        print(f"HR@{k} = {hit_rates_2[k]:.4f}, NDCG@{k} = {ndcg_values_2[k]:.4f}")
+    # 5) Prepare training tf.data.Dataset
+    reduced_train_df["label"] = 1.0
+    train_ds = df_to_tf_dataset({
+        "user_id": reduced_train_df["user_id_int"].values,
+        "item_id": reduced_train_df["item_id_int"].values,
+    }, shuffle=True, batch_size=1024)
 
-    print("\n================== Summary ==================")
-    print("Model A (1 Interaction for Cold Users):")
-    for k in [3,5]:
-        print(f"  HR@{k} = {hit_rates_1[k]:.4f}, NDCG@{k} = {ndcg_values_1[k]:.4f}")
-    print("\nModel B (1 Real + 1 Synthetic for Cold Users):")
-    for k in [3,5]:
-        print(f"  HR@{k} = {hit_rates_2[k]:.4f}, NDCG@{k} = {ndcg_values_2[k]:.4f}")
+    # 6) Create and train our Two-Tower model
+    user_model = UserModel(num_users, embedding_dim=16)
+    item_model = ItemModel(num_items, embedding_dim=16)
+
+    # We'll use a BinaryCrossentropy for the TFRS retrieval task
+    loss = tf.keras.losses.BinaryCrossentropy(from_logits=False)
+    model = TwoTowerModel(user_model=user_model, item_model=item_model, loss=loss)
+    model.compile(optimizer=tf.keras.optimizers.Adam(0.001))
+
+    print("\nTraining the Two-Tower model on the reduced (cold-user) training set...")
+    model.fit(train_ds, epochs=5)
+
+    # 7) Evaluate with negative sampling
+    print("\nEvaluating the model (Leave-One-Out + Negative Sampling)...")
+    hr, ndcg = evaluate_with_negative_sampling(model, test_df, reduced_train_df, num_items, K_values=[1, 3, 5, 10])
+
+    # 8) Print results
+    print("\nEvaluation Results:")
+    print("=" * 40)
+    print(f"{'k':<10}{'Hit Rate':<15}{'NDCG':<15}")
+    print("-" * 40)
+    for k in [1, 3, 5, 10]:
+        print(f"{k:<10}{hr[k]:.4f}{'':5}{ndcg[k]:.4f}")
+    print("=" * 40)

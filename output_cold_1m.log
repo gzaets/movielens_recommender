@@ -1,448 +1,93 @@
-Ratings shape: (1000209, 4)
+
+After rating==5 & 10-core + LOO:
+Train size: 214579   Test size: 4814
+Unique users in train: 4814, in test: 4814
+
 Users shape: (6040, 5)
-Movies shape: (3883, 21)
-Train size: 800167 Test size: 200042
-Number of cold users in test: 0
-Number of warm users in test: 6038
+Movies shape: (3883, 3)
+Original train size: 214579; test size: 4814
+Reduced train size: 172904
+
+Training the Two-Tower model on the reduced (cold-user) training set...
 Epoch 1/5
 
-[1m  1/314[0m [37m====================[0m [1m1:09[0m 222ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m  9/314[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247    
-[1m 17/314[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 25/314[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 32/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m 40/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 48/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 56/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 64/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 72/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 80/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 88/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 96/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m104/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m112/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m120/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m128/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m136/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m144/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m152/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m160/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m168/314[0m [32m==========[0m[37m==========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m175/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m181/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m188/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m196/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m204/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m212/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m220/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m228/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m236/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m244/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m252/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m260/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m268/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m276/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m284/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m292/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m300/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m308/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m314/314[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.6221 - regularization_loss: 0.0000e+00 - total_loss: 7.6221
+  1/169 [..............................] - ETA: 52s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 17/169 [==>...........................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119 
+ 33/169 [====>.........................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 50/169 [=======>......................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 66/169 [==========>...................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 80/169 [=============>................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 94/169 [===============>..............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+109/169 [==================>...........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+122/169 [====================>.........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+137/169 [=======================>......] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+153/169 [==========================>...] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+169/169 [==============================] - 1s 3ms/step - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
 Epoch 2/5
 
-[1m  1/314[0m [37m====================[0m [1m3s[0m 12ms/step - loss: 7.6200 - regularization_loss: 0.0000e+00 - total_loss: 7.6200
-[1m  7/314[0m [37m====================[0m [1m2s[0m 9ms/step - loss: 7.6211 - regularization_loss: 0.0000e+00 - total_loss: 7.6211 
-[1m 14/314[0m [37m====================[0m [1m2s[0m 8ms/step - loss: 7.6214 - regularization_loss: 0.0000e+00 - total_loss: 7.6214
-[1m 22/314[0m [32m=[0m[37m===================[0m [1m2s[0m 8ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 30/314[0m [32m=[0m[37m===================[0m [1m2s[0m 8ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 38/314[0m [32m==[0m[37m==================[0m [1m2s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 46/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 52/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 60/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 68/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 76/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6215 - regularization_loss: 0.0000e+00 - total_loss: 7.6215
-[1m 84/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6214 - regularization_loss: 0.0000e+00 - total_loss: 7.6214
-[1m 92/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6214 - regularization_loss: 0.0000e+00 - total_loss: 7.6214
-[1m100/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6213 - regularization_loss: 0.0000e+00 - total_loss: 7.6213
-[1m108/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6212 - regularization_loss: 0.0000e+00 - total_loss: 7.6212
-[1m116/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6211 - regularization_loss: 0.0000e+00 - total_loss: 7.6211
-[1m124/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6210 - regularization_loss: 0.0000e+00 - total_loss: 7.6210
-[1m132/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6209 - regularization_loss: 0.0000e+00 - total_loss: 7.6209
-[1m140/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6208 - regularization_loss: 0.0000e+00 - total_loss: 7.6208
-[1m148/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6207 - regularization_loss: 0.0000e+00 - total_loss: 7.6207
-[1m154/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6206 - regularization_loss: 0.0000e+00 - total_loss: 7.6206
-[1m162/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6205 - regularization_loss: 0.0000e+00 - total_loss: 7.6205
-[1m169/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6203 - regularization_loss: 0.0000e+00 - total_loss: 7.6203
-[1m177/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6202 - regularization_loss: 0.0000e+00 - total_loss: 7.6202
-[1m185/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6200 - regularization_loss: 0.0000e+00 - total_loss: 7.6200
-[1m193/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6198 - regularization_loss: 0.0000e+00 - total_loss: 7.6198
-[1m201/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6196 - regularization_loss: 0.0000e+00 - total_loss: 7.6196
-[1m209/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6194 - regularization_loss: 0.0000e+00 - total_loss: 7.6194
-[1m217/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6192 - regularization_loss: 0.0000e+00 - total_loss: 7.6192
-[1m225/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6190 - regularization_loss: 0.0000e+00 - total_loss: 7.6190
-[1m233/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6187 - regularization_loss: 0.0000e+00 - total_loss: 7.6187
-[1m241/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6185 - regularization_loss: 0.0000e+00 - total_loss: 7.6185
-[1m249/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6182 - regularization_loss: 0.0000e+00 - total_loss: 7.6182
-[1m257/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6179 - regularization_loss: 0.0000e+00 - total_loss: 7.6179
-[1m265/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6176 - regularization_loss: 0.0000e+00 - total_loss: 7.6176
-[1m273/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6172 - regularization_loss: 0.0000e+00 - total_loss: 7.6172
-[1m281/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6169 - regularization_loss: 0.0000e+00 - total_loss: 7.6169
-[1m289/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6165 - regularization_loss: 0.0000e+00 - total_loss: 7.6165
-[1m295/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6162 - regularization_loss: 0.0000e+00 - total_loss: 7.6162
-[1m301/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6159 - regularization_loss: 0.0000e+00 - total_loss: 7.6159
-[1m309/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6155 - regularization_loss: 0.0000e+00 - total_loss: 7.6155
-[1m314/314[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.6127 - regularization_loss: 0.0000e+00 - total_loss: 7.6127
+  1/169 [..............................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 15/169 [=>............................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+ 30/169 [====>.........................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 45/169 [======>.......................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 60/169 [=========>....................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 76/169 [============>.................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 92/169 [===============>..............] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+108/169 [==================>...........] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+123/169 [====================>.........] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+139/169 [=======================>......] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+155/169 [==========================>...] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+169/169 [==============================] - 1s 3ms/step - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
 Epoch 3/5
 
-[1m  1/314[0m [37m====================[0m [1m3s[0m 12ms/step - loss: 7.5931 - regularization_loss: 0.0000e+00 - total_loss: 7.5931
-[1m  9/314[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.5936 - regularization_loss: 0.0000e+00 - total_loss: 7.5936 
-[1m 17/314[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.5929 - regularization_loss: 0.0000e+00 - total_loss: 7.5929
-[1m 25/314[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.5920 - regularization_loss: 0.0000e+00 - total_loss: 7.5920
-[1m 33/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.5911 - regularization_loss: 0.0000e+00 - total_loss: 7.5911
-[1m 41/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.5900 - regularization_loss: 0.0000e+00 - total_loss: 7.5900
-[1m 49/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.5890 - regularization_loss: 0.0000e+00 - total_loss: 7.5890
-[1m 57/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.5878 - regularization_loss: 0.0000e+00 - total_loss: 7.5878
-[1m 65/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.5866 - regularization_loss: 0.0000e+00 - total_loss: 7.5866
-[1m 73/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.5854 - regularization_loss: 0.0000e+00 - total_loss: 7.5854
-[1m 81/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.5842 - regularization_loss: 0.0000e+00 - total_loss: 7.5842
-[1m 89/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.5829 - regularization_loss: 0.0000e+00 - total_loss: 7.5829
-[1m 97/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.5816 - regularization_loss: 0.0000e+00 - total_loss: 7.5816
-[1m105/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.5802 - regularization_loss: 0.0000e+00 - total_loss: 7.5802
-[1m113/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.5789 - regularization_loss: 0.0000e+00 - total_loss: 7.5789
-[1m121/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.5774 - regularization_loss: 0.0000e+00 - total_loss: 7.5774
-[1m127/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.5763 - regularization_loss: 0.0000e+00 - total_loss: 7.5763
-[1m133/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.5752 - regularization_loss: 0.0000e+00 - total_loss: 7.5752
-[1m141/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.5737 - regularization_loss: 0.0000e+00 - total_loss: 7.5737
-[1m149/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.5722 - regularization_loss: 0.0000e+00 - total_loss: 7.5722
-[1m157/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.5707 - regularization_loss: 0.0000e+00 - total_loss: 7.5707
-[1m165/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.5692 - regularization_loss: 0.0000e+00 - total_loss: 7.5692
-[1m173/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.5675 - regularization_loss: 0.0000e+00 - total_loss: 7.5675
-[1m181/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.5659 - regularization_loss: 0.0000e+00 - total_loss: 7.5659
-[1m189/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.5643 - regularization_loss: 0.0000e+00 - total_loss: 7.5643
-[1m197/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.5626 - regularization_loss: 0.0000e+00 - total_loss: 7.5626
-[1m205/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.5608 - regularization_loss: 0.0000e+00 - total_loss: 7.5608
-[1m213/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.5590 - regularization_loss: 0.0000e+00 - total_loss: 7.5590
-[1m221/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.5572 - regularization_loss: 0.0000e+00 - total_loss: 7.5572
-[1m229/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.5555 - regularization_loss: 0.0000e+00 - total_loss: 7.5555
-[1m237/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.5537 - regularization_loss: 0.0000e+00 - total_loss: 7.5537
-[1m245/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.5520 - regularization_loss: 0.0000e+00 - total_loss: 7.5520
-[1m253/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.5502 - regularization_loss: 0.0000e+00 - total_loss: 7.5502
-[1m261/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.5484 - regularization_loss: 0.0000e+00 - total_loss: 7.5484
-[1m268/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.5467 - regularization_loss: 0.0000e+00 - total_loss: 7.5467
-[1m274/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.5454 - regularization_loss: 0.0000e+00 - total_loss: 7.5454
-[1m282/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.5437 - regularization_loss: 0.0000e+00 - total_loss: 7.5437
-[1m290/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.5419 - regularization_loss: 0.0000e+00 - total_loss: 7.5419
-[1m298/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.5400 - regularization_loss: 0.0000e+00 - total_loss: 7.5400
-[1m306/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.5383 - regularization_loss: 0.0000e+00 - total_loss: 7.5383
-[1m314/314[0m [32m====================[0m[37m[0m [1m0s[0m 7ms/step - loss: 7.5355 - regularization_loss: 0.0000e+00 - total_loss: 7.5355
-[1m314/314[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.5342 - regularization_loss: 0.0000e+00 - total_loss: 7.5342
+  1/169 [..............................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 16/169 [=>............................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 32/169 [====>.........................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 48/169 [=======>......................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 65/169 [==========>...................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 81/169 [=============>................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 97/169 [================>.............] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+113/169 [===================>..........] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+129/169 [=====================>........] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+145/169 [========================>.....] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+161/169 [===========================>..] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+169/169 [==============================] - 1s 3ms/step - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
 Epoch 4/5
 
-[1m  1/314[0m [37m====================[0m [1m3s[0m 13ms/step - loss: 7.4597 - regularization_loss: 0.0000e+00 - total_loss: 7.4597
-[1m  9/314[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.4601 - regularization_loss: 0.0000e+00 - total_loss: 7.4601 
-[1m 17/314[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.4584 - regularization_loss: 0.0000e+00 - total_loss: 7.4584
-[1m 25/314[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.4563 - regularization_loss: 0.0000e+00 - total_loss: 7.4563
-[1m 33/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.4543 - regularization_loss: 0.0000e+00 - total_loss: 7.4543
-[1m 41/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.4524 - regularization_loss: 0.0000e+00 - total_loss: 7.4524
-[1m 49/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.4508 - regularization_loss: 0.0000e+00 - total_loss: 7.4508
-[1m 57/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.4489 - regularization_loss: 0.0000e+00 - total_loss: 7.4489
-[1m 65/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.4471 - regularization_loss: 0.0000e+00 - total_loss: 7.4471
-[1m 73/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.4455 - regularization_loss: 0.0000e+00 - total_loss: 7.4455
-[1m 81/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.4438 - regularization_loss: 0.0000e+00 - total_loss: 7.4438
-[1m 89/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.4421 - regularization_loss: 0.0000e+00 - total_loss: 7.4421
-[1m 97/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.4407 - regularization_loss: 0.0000e+00 - total_loss: 7.4407
-[1m103/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.4394 - regularization_loss: 0.0000e+00 - total_loss: 7.4394
-[1m110/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.4382 - regularization_loss: 0.0000e+00 - total_loss: 7.4382
-[1m118/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.4366 - regularization_loss: 0.0000e+00 - total_loss: 7.4366
-[1m126/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.4348 - regularization_loss: 0.0000e+00 - total_loss: 7.4348
-[1m134/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.4330 - regularization_loss: 0.0000e+00 - total_loss: 7.4330
-[1m142/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.4314 - regularization_loss: 0.0000e+00 - total_loss: 7.4314
-[1m150/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.4302 - regularization_loss: 0.0000e+00 - total_loss: 7.4302
-[1m158/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.4288 - regularization_loss: 0.0000e+00 - total_loss: 7.4288
-[1m166/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.4272 - regularization_loss: 0.0000e+00 - total_loss: 7.4272
-[1m174/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.4256 - regularization_loss: 0.0000e+00 - total_loss: 7.4256
-[1m182/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.4240 - regularization_loss: 0.0000e+00 - total_loss: 7.4240
-[1m190/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.4225 - regularization_loss: 0.0000e+00 - total_loss: 7.4225
-[1m198/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.4209 - regularization_loss: 0.0000e+00 - total_loss: 7.4209
-[1m206/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.4194 - regularization_loss: 0.0000e+00 - total_loss: 7.4194
-[1m214/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.4176 - regularization_loss: 0.0000e+00 - total_loss: 7.4176
-[1m222/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.4161 - regularization_loss: 0.0000e+00 - total_loss: 7.4161
-[1m230/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.4146 - regularization_loss: 0.0000e+00 - total_loss: 7.4146
-[1m238/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.4132 - regularization_loss: 0.0000e+00 - total_loss: 7.4132
-[1m245/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.4120 - regularization_loss: 0.0000e+00 - total_loss: 7.4120
-[1m251/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.4108 - regularization_loss: 0.0000e+00 - total_loss: 7.4108
-[1m259/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.4094 - regularization_loss: 0.0000e+00 - total_loss: 7.4094
-[1m267/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.4081 - regularization_loss: 0.0000e+00 - total_loss: 7.4081
-[1m275/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.4066 - regularization_loss: 0.0000e+00 - total_loss: 7.4066
-[1m283/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.4054 - regularization_loss: 0.0000e+00 - total_loss: 7.4054
-[1m291/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.4042 - regularization_loss: 0.0000e+00 - total_loss: 7.4042
-[1m299/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.4027 - regularization_loss: 0.0000e+00 - total_loss: 7.4027
-[1m307/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.4016 - regularization_loss: 0.0000e+00 - total_loss: 7.4016
-[1m314/314[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.3983 - regularization_loss: 0.0000e+00 - total_loss: 7.3983
+  1/169 [..............................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+ 17/169 [==>...........................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 33/169 [====>.........................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 50/169 [=======>......................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 67/169 [==========>...................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 84/169 [=============>................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+101/169 [================>.............] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+118/169 [===================>..........] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+134/169 [======================>.......] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+151/169 [=========================>....] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+168/169 [============================>.] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+169/169 [==============================] - 1s 3ms/step - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
 Epoch 5/5
 
-[1m  1/314[0m [37m====================[0m [1m3s[0m 12ms/step - loss: 7.3442 - regularization_loss: 0.0000e+00 - total_loss: 7.3442
-[1m  9/314[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.3440 - regularization_loss: 0.0000e+00 - total_loss: 7.3440 
-[1m 17/314[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.3430 - regularization_loss: 0.0000e+00 - total_loss: 7.3430
-[1m 25/314[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.3416 - regularization_loss: 0.0000e+00 - total_loss: 7.3416
-[1m 33/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.3396 - regularization_loss: 0.0000e+00 - total_loss: 7.3396
-[1m 41/314[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.3386 - regularization_loss: 0.0000e+00 - total_loss: 7.3386
-[1m 49/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.3378 - regularization_loss: 0.0000e+00 - total_loss: 7.3378
-[1m 57/314[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.3368 - regularization_loss: 0.0000e+00 - total_loss: 7.3368
-[1m 65/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.3357 - regularization_loss: 0.0000e+00 - total_loss: 7.3357
-[1m 73/314[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.3351 - regularization_loss: 0.0000e+00 - total_loss: 7.3351
-[1m 79/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.3341 - regularization_loss: 0.0000e+00 - total_loss: 7.3341
-[1m 86/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.3335 - regularization_loss: 0.0000e+00 - total_loss: 7.3335
-[1m 94/314[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.3328 - regularization_loss: 0.0000e+00 - total_loss: 7.3328
-[1m102/314[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.3319 - regularization_loss: 0.0000e+00 - total_loss: 7.3319
-[1m110/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.3312 - regularization_loss: 0.0000e+00 - total_loss: 7.3312
-[1m118/314[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.3303 - regularization_loss: 0.0000e+00 - total_loss: 7.3303
-[1m126/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.3292 - regularization_loss: 0.0000e+00 - total_loss: 7.3292
-[1m134/314[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.3280 - regularization_loss: 0.0000e+00 - total_loss: 7.3280
-[1m142/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.3269 - regularization_loss: 0.0000e+00 - total_loss: 7.3269
-[1m149/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.3266 - regularization_loss: 0.0000e+00 - total_loss: 7.3266
-[1m156/314[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.3258 - regularization_loss: 0.0000e+00 - total_loss: 7.3258
-[1m164/314[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.3250 - regularization_loss: 0.0000e+00 - total_loss: 7.3250
-[1m172/314[0m [32m==========[0m[37m==========[0m [1m0s[0m 7ms/step - loss: 7.3239 - regularization_loss: 0.0000e+00 - total_loss: 7.3239
-[1m180/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.3231 - regularization_loss: 0.0000e+00 - total_loss: 7.3231
-[1m188/314[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.3220 - regularization_loss: 0.0000e+00 - total_loss: 7.3220
-[1m196/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.3211 - regularization_loss: 0.0000e+00 - total_loss: 7.3211
-[1m204/314[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.3201 - regularization_loss: 0.0000e+00 - total_loss: 7.3201
-[1m212/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.3189 - regularization_loss: 0.0000e+00 - total_loss: 7.3189
-[1m219/314[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.3179 - regularization_loss: 0.0000e+00 - total_loss: 7.3179
-[1m226/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.3170 - regularization_loss: 0.0000e+00 - total_loss: 7.3170
-[1m233/314[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.3162 - regularization_loss: 0.0000e+00 - total_loss: 7.3162
-[1m241/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.3154 - regularization_loss: 0.0000e+00 - total_loss: 7.3154
-[1m249/314[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.3144 - regularization_loss: 0.0000e+00 - total_loss: 7.3144
-[1m257/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.3135 - regularization_loss: 0.0000e+00 - total_loss: 7.3135
-[1m265/314[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.3126 - regularization_loss: 0.0000e+00 - total_loss: 7.3126
-[1m273/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.3116 - regularization_loss: 0.0000e+00 - total_loss: 7.3116
-[1m281/314[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.3108 - regularization_loss: 0.0000e+00 - total_loss: 7.3108
-[1m289/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.3102 - regularization_loss: 0.0000e+00 - total_loss: 7.3102
-[1m297/314[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.3093 - regularization_loss: 0.0000e+00 - total_loss: 7.3093
-[1m305/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.3086 - regularization_loss: 0.0000e+00 - total_loss: 7.3086
-[1m313/314[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.3079 - regularization_loss: 0.0000e+00 - total_loss: 7.3079
-[1m314/314[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.3054 - regularization_loss: 0.0000e+00 - total_loss: 7.3054
-Epoch 1/5
+  1/169 [..............................] - ETA: 0s - loss: 0.0107 - regularization_loss: 0.0000e+00 - total_loss: 0.0107
+ 18/169 [==>...........................] - ETA: 0s - loss: 0.0107 - regularization_loss: 0.0000e+00 - total_loss: 0.0107
+ 34/169 [=====>........................] - ETA: 0s - loss: 0.0107 - regularization_loss: 0.0000e+00 - total_loss: 0.0107
+ 51/169 [========>.....................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+ 66/169 [==========>...................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+ 82/169 [=============>................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+ 98/169 [================>.............] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+115/169 [===================>..........] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+132/169 [======================>.......] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+148/169 [=========================>....] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+165/169 [============================>.] - ETA: 0s - loss: 0.0107 - regularization_loss: 0.0000e+00 - total_loss: 0.0107
+169/169 [==============================] - 1s 3ms/step - loss: 0.0107 - regularization_loss: 0.0000e+00 - total_loss: 0.0107
 
-[1m  1/315[0m [37m====================[0m [1m59s[0m 190ms/step - loss: 7.6248 - regularization_loss: 0.0000e+00 - total_loss: 7.6248
-[1m  9/315[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246   
-[1m 17/315[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m 25/315[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m 33/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m 41/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m 49/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 57/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 65/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 73/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 81/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 89/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m 95/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m103/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m111/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m119/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m127/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m135/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m143/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m151/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m159/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m167/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m175/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m183/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m191/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m199/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m207/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m215/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m223/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m231/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m238/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m244/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m252/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m260/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m268/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m276/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m284/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m292/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m300/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6247 - regularization_loss: 0.0000e+00 - total_loss: 7.6247
-[1m308/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6246 - regularization_loss: 0.0000e+00 - total_loss: 7.6246
-[1m315/315[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.6162 - regularization_loss: 0.0000e+00 - total_loss: 7.6162
-Epoch 2/5
+Evaluating the model (Leave-One-Out + Negative Sampling)...
 
-[1m  1/315[0m [37m====================[0m [1m3s[0m 12ms/step - loss: 7.6201 - regularization_loss: 0.0000e+00 - total_loss: 7.6201
-[1m  9/315[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.6212 - regularization_loss: 0.0000e+00 - total_loss: 7.6212 
-[1m 17/315[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.6215 - regularization_loss: 0.0000e+00 - total_loss: 7.6215
-[1m 25/315[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 33/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 41/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 49/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6217 - regularization_loss: 0.0000e+00 - total_loss: 7.6217
-[1m 57/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 65/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6216 - regularization_loss: 0.0000e+00 - total_loss: 7.6216
-[1m 71/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6215 - regularization_loss: 0.0000e+00 - total_loss: 7.6215
-[1m 78/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.6215 - regularization_loss: 0.0000e+00 - total_loss: 7.6215
-[1m 85/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6215 - regularization_loss: 0.0000e+00 - total_loss: 7.6215
-[1m 93/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.6214 - regularization_loss: 0.0000e+00 - total_loss: 7.6214
-[1m 99/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6213 - regularization_loss: 0.0000e+00 - total_loss: 7.6213
-[1m107/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.6212 - regularization_loss: 0.0000e+00 - total_loss: 7.6212
-[1m115/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6212 - regularization_loss: 0.0000e+00 - total_loss: 7.6212
-[1m123/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.6211 - regularization_loss: 0.0000e+00 - total_loss: 7.6211
-[1m131/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6210 - regularization_loss: 0.0000e+00 - total_loss: 7.6210
-[1m139/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.6208 - regularization_loss: 0.0000e+00 - total_loss: 7.6208
-[1m147/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6207 - regularization_loss: 0.0000e+00 - total_loss: 7.6207
-[1m155/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.6206 - regularization_loss: 0.0000e+00 - total_loss: 7.6206
-[1m163/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6205 - regularization_loss: 0.0000e+00 - total_loss: 7.6205
-[1m171/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.6203 - regularization_loss: 0.0000e+00 - total_loss: 7.6203
-[1m179/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6202 - regularization_loss: 0.0000e+00 - total_loss: 7.6202
-[1m187/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.6200 - regularization_loss: 0.0000e+00 - total_loss: 7.6200
-[1m195/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6198 - regularization_loss: 0.0000e+00 - total_loss: 7.6198
-[1m203/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.6196 - regularization_loss: 0.0000e+00 - total_loss: 7.6196
-[1m210/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6194 - regularization_loss: 0.0000e+00 - total_loss: 7.6194
-[1m216/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.6193 - regularization_loss: 0.0000e+00 - total_loss: 7.6193
-[1m223/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6191 - regularization_loss: 0.0000e+00 - total_loss: 7.6191
-[1m231/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.6188 - regularization_loss: 0.0000e+00 - total_loss: 7.6188
-[1m239/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6186 - regularization_loss: 0.0000e+00 - total_loss: 7.6186
-[1m247/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.6183 - regularization_loss: 0.0000e+00 - total_loss: 7.6183
-[1m255/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6180 - regularization_loss: 0.0000e+00 - total_loss: 7.6180
-[1m263/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.6177 - regularization_loss: 0.0000e+00 - total_loss: 7.6177
-[1m271/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6174 - regularization_loss: 0.0000e+00 - total_loss: 7.6174
-[1m279/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.6171 - regularization_loss: 0.0000e+00 - total_loss: 7.6171
-[1m287/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6167 - regularization_loss: 0.0000e+00 - total_loss: 7.6167
-[1m295/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.6163 - regularization_loss: 0.0000e+00 - total_loss: 7.6163
-[1m303/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6159 - regularization_loss: 0.0000e+00 - total_loss: 7.6159
-[1m311/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.6155 - regularization_loss: 0.0000e+00 - total_loss: 7.6155
-[1m315/315[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.6069 - regularization_loss: 0.0000e+00 - total_loss: 7.6069
-Epoch 3/5
-
-[1m  1/315[0m [37m====================[0m [1m4s[0m 13ms/step - loss: 7.5924 - regularization_loss: 0.0000e+00 - total_loss: 7.5924
-[1m  9/315[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.5933 - regularization_loss: 0.0000e+00 - total_loss: 7.5933 
-[1m 17/315[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.5929 - regularization_loss: 0.0000e+00 - total_loss: 7.5929
-[1m 25/315[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.5921 - regularization_loss: 0.0000e+00 - total_loss: 7.5921
-[1m 33/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.5912 - regularization_loss: 0.0000e+00 - total_loss: 7.5912
-[1m 39/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.5905 - regularization_loss: 0.0000e+00 - total_loss: 7.5905
-[1m 46/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.5894 - regularization_loss: 0.0000e+00 - total_loss: 7.5894
-[1m 53/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.5885 - regularization_loss: 0.0000e+00 - total_loss: 7.5885
-[1m 61/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.5874 - regularization_loss: 0.0000e+00 - total_loss: 7.5874
-[1m 69/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.5861 - regularization_loss: 0.0000e+00 - total_loss: 7.5861
-[1m 77/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.5849 - regularization_loss: 0.0000e+00 - total_loss: 7.5849
-[1m 85/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.5836 - regularization_loss: 0.0000e+00 - total_loss: 7.5836
-[1m 93/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.5823 - regularization_loss: 0.0000e+00 - total_loss: 7.5823
-[1m101/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.5809 - regularization_loss: 0.0000e+00 - total_loss: 7.5809
-[1m109/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.5797 - regularization_loss: 0.0000e+00 - total_loss: 7.5797
-[1m117/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.5782 - regularization_loss: 0.0000e+00 - total_loss: 7.5782
-[1m125/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.5767 - regularization_loss: 0.0000e+00 - total_loss: 7.5767
-[1m133/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.5752 - regularization_loss: 0.0000e+00 - total_loss: 7.5752
-[1m141/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.5737 - regularization_loss: 0.0000e+00 - total_loss: 7.5737
-[1m149/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.5722 - regularization_loss: 0.0000e+00 - total_loss: 7.5722
-[1m157/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.5707 - regularization_loss: 0.0000e+00 - total_loss: 7.5707
-[1m165/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.5690 - regularization_loss: 0.0000e+00 - total_loss: 7.5690
-[1m173/315[0m [32m==========[0m[37m==========[0m [1m0s[0m 7ms/step - loss: 7.5674 - regularization_loss: 0.0000e+00 - total_loss: 7.5674
-[1m180/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.5659 - regularization_loss: 0.0000e+00 - total_loss: 7.5659
-[1m186/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.5646 - regularization_loss: 0.0000e+00 - total_loss: 7.5646
-[1m194/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.5630 - regularization_loss: 0.0000e+00 - total_loss: 7.5630
-[1m201/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.5614 - regularization_loss: 0.0000e+00 - total_loss: 7.5614
-[1m209/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.5597 - regularization_loss: 0.0000e+00 - total_loss: 7.5597
-[1m217/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.5578 - regularization_loss: 0.0000e+00 - total_loss: 7.5578
-[1m225/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.5560 - regularization_loss: 0.0000e+00 - total_loss: 7.5560
-[1m233/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.5542 - regularization_loss: 0.0000e+00 - total_loss: 7.5542
-[1m241/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.5524 - regularization_loss: 0.0000e+00 - total_loss: 7.5524
-[1m249/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.5506 - regularization_loss: 0.0000e+00 - total_loss: 7.5506
-[1m257/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.5488 - regularization_loss: 0.0000e+00 - total_loss: 7.5488
-[1m265/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.5469 - regularization_loss: 0.0000e+00 - total_loss: 7.5469
-[1m272/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.5453 - regularization_loss: 0.0000e+00 - total_loss: 7.5453
-[1m279/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.5437 - regularization_loss: 0.0000e+00 - total_loss: 7.5437
-[1m286/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.5422 - regularization_loss: 0.0000e+00 - total_loss: 7.5422
-[1m294/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.5403 - regularization_loss: 0.0000e+00 - total_loss: 7.5403
-[1m302/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.5385 - regularization_loss: 0.0000e+00 - total_loss: 7.5385
-[1m310/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.5367 - regularization_loss: 0.0000e+00 - total_loss: 7.5367
-[1m315/315[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.5279 - regularization_loss: 0.0000e+00 - total_loss: 7.5279
-Epoch 4/5
-
-[1m  1/315[0m [37m====================[0m [1m4s[0m 14ms/step - loss: 7.4557 - regularization_loss: 0.0000e+00 - total_loss: 7.4557
-[1m  7/315[0m [37m====================[0m [1m2s[0m 9ms/step - loss: 7.4559 - regularization_loss: 0.0000e+00 - total_loss: 7.4559 
-[1m 14/315[0m [37m====================[0m [1m2s[0m 9ms/step - loss: 7.4567 - regularization_loss: 0.0000e+00 - total_loss: 7.4567
-[1m 22/315[0m [32m=[0m[37m===================[0m [1m2s[0m 8ms/step - loss: 7.4551 - regularization_loss: 0.0000e+00 - total_loss: 7.4551
-[1m 29/315[0m [32m=[0m[37m===================[0m [1m2s[0m 8ms/step - loss: 7.4530 - regularization_loss: 0.0000e+00 - total_loss: 7.4530
-[1m 37/315[0m [32m==[0m[37m==================[0m [1m2s[0m 8ms/step - loss: 7.4519 - regularization_loss: 0.0000e+00 - total_loss: 7.4519
-[1m 45/315[0m [32m==[0m[37m==================[0m [1m2s[0m 7ms/step - loss: 7.4491 - regularization_loss: 0.0000e+00 - total_loss: 7.4491
-[1m 52/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.4480 - regularization_loss: 0.0000e+00 - total_loss: 7.4480
-[1m 60/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.4461 - regularization_loss: 0.0000e+00 - total_loss: 7.4461
-[1m 68/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.4442 - regularization_loss: 0.0000e+00 - total_loss: 7.4442
-[1m 76/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.4427 - regularization_loss: 0.0000e+00 - total_loss: 7.4427
-[1m 84/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.4409 - regularization_loss: 0.0000e+00 - total_loss: 7.4409
-[1m 92/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.4392 - regularization_loss: 0.0000e+00 - total_loss: 7.4392
-[1m100/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.4377 - regularization_loss: 0.0000e+00 - total_loss: 7.4377
-[1m108/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.4361 - regularization_loss: 0.0000e+00 - total_loss: 7.4361
-[1m116/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.4347 - regularization_loss: 0.0000e+00 - total_loss: 7.4347
-[1m124/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.4328 - regularization_loss: 0.0000e+00 - total_loss: 7.4328
-[1m131/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.4312 - regularization_loss: 0.0000e+00 - total_loss: 7.4312
-[1m139/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.4296 - regularization_loss: 0.0000e+00 - total_loss: 7.4296
-[1m146/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.4283 - regularization_loss: 0.0000e+00 - total_loss: 7.4283
-[1m152/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.4272 - regularization_loss: 0.0000e+00 - total_loss: 7.4272
-[1m159/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.4260 - regularization_loss: 0.0000e+00 - total_loss: 7.4260
-[1m167/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.4244 - regularization_loss: 0.0000e+00 - total_loss: 7.4244
-[1m174/315[0m [32m===========[0m[37m=========[0m [1m1s[0m 7ms/step - loss: 7.4230 - regularization_loss: 0.0000e+00 - total_loss: 7.4230
-[1m182/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.4213 - regularization_loss: 0.0000e+00 - total_loss: 7.4213
-[1m190/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.4198 - regularization_loss: 0.0000e+00 - total_loss: 7.4198
-[1m198/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.4182 - regularization_loss: 0.0000e+00 - total_loss: 7.4182
-[1m206/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.4167 - regularization_loss: 0.0000e+00 - total_loss: 7.4167
-[1m214/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.4149 - regularization_loss: 0.0000e+00 - total_loss: 7.4149
-[1m222/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.4133 - regularization_loss: 0.0000e+00 - total_loss: 7.4133
-[1m230/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.4118 - regularization_loss: 0.0000e+00 - total_loss: 7.4118
-[1m238/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.4103 - regularization_loss: 0.0000e+00 - total_loss: 7.4103
-[1m246/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.4089 - regularization_loss: 0.0000e+00 - total_loss: 7.4089
-[1m254/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.4074 - regularization_loss: 0.0000e+00 - total_loss: 7.4074
-[1m262/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.4059 - regularization_loss: 0.0000e+00 - total_loss: 7.4059
-[1m270/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.4044 - regularization_loss: 0.0000e+00 - total_loss: 7.4044
-[1m278/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.4030 - regularization_loss: 0.0000e+00 - total_loss: 7.4030
-[1m286/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.4018 - regularization_loss: 0.0000e+00 - total_loss: 7.4018
-[1m292/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.4009 - regularization_loss: 0.0000e+00 - total_loss: 7.4009
-[1m299/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.3996 - regularization_loss: 0.0000e+00 - total_loss: 7.3996
-[1m307/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.3984 - regularization_loss: 0.0000e+00 - total_loss: 7.3984
-[1m315/315[0m [32m====================[0m[37m[0m [1m0s[0m 7ms/step - loss: 7.3938 - regularization_loss: 0.0000e+00 - total_loss: 7.3938
-[1m315/315[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.3899 - regularization_loss: 0.0000e+00 - total_loss: 7.3899
-Epoch 5/5
-
-[1m  1/315[0m [37m====================[0m [1m4s[0m 14ms/step - loss: 7.3374 - regularization_loss: 0.0000e+00 - total_loss: 7.3374
-[1m  9/315[0m [37m====================[0m [1m2s[0m 7ms/step - loss: 7.3377 - regularization_loss: 0.0000e+00 - total_loss: 7.3377 
-[1m 17/315[0m [32m=[0m[37m===================[0m [1m2s[0m 7ms/step - loss: 7.3377 - regularization_loss: 0.0000e+00 - total_loss: 7.3377
-[1m 25/315[0m [32m=[0m[37m===================[0m [1m1s[0m 7ms/step - loss: 7.3367 - regularization_loss: 0.0000e+00 - total_loss: 7.3367
-[1m 33/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.3349 - regularization_loss: 0.0000e+00 - total_loss: 7.3349
-[1m 41/315[0m [32m==[0m[37m==================[0m [1m1s[0m 7ms/step - loss: 7.3339 - regularization_loss: 0.0000e+00 - total_loss: 7.3339
-[1m 49/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.3331 - regularization_loss: 0.0000e+00 - total_loss: 7.3331
-[1m 55/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.3324 - regularization_loss: 0.0000e+00 - total_loss: 7.3324
-[1m 62/315[0m [32m===[0m[37m=================[0m [1m1s[0m 7ms/step - loss: 7.3315 - regularization_loss: 0.0000e+00 - total_loss: 7.3315
-[1m 70/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.3304 - regularization_loss: 0.0000e+00 - total_loss: 7.3304
-[1m 78/315[0m [32m====[0m[37m================[0m [1m1s[0m 7ms/step - loss: 7.3296 - regularization_loss: 0.0000e+00 - total_loss: 7.3296
-[1m 86/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.3288 - regularization_loss: 0.0000e+00 - total_loss: 7.3288
-[1m 94/315[0m [32m=====[0m[37m===============[0m [1m1s[0m 7ms/step - loss: 7.3280 - regularization_loss: 0.0000e+00 - total_loss: 7.3280
-[1m102/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.3271 - regularization_loss: 0.0000e+00 - total_loss: 7.3271
-[1m110/315[0m [32m======[0m[37m==============[0m [1m1s[0m 7ms/step - loss: 7.3264 - regularization_loss: 0.0000e+00 - total_loss: 7.3264
-[1m117/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.3256 - regularization_loss: 0.0000e+00 - total_loss: 7.3256
-[1m124/315[0m [32m=======[0m[37m=============[0m [1m1s[0m 7ms/step - loss: 7.3245 - regularization_loss: 0.0000e+00 - total_loss: 7.3245
-[1m132/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.3233 - regularization_loss: 0.0000e+00 - total_loss: 7.3233
-[1m140/315[0m [32m========[0m[37m============[0m [1m1s[0m 7ms/step - loss: 7.3222 - regularization_loss: 0.0000e+00 - total_loss: 7.3222
-[1m148/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.3216 - regularization_loss: 0.0000e+00 - total_loss: 7.3216
-[1m155/315[0m [32m=========[0m[37m===========[0m [1m1s[0m 7ms/step - loss: 7.3208 - regularization_loss: 0.0000e+00 - total_loss: 7.3208
-[1m163/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.3202 - regularization_loss: 0.0000e+00 - total_loss: 7.3202
-[1m171/315[0m [32m==========[0m[37m==========[0m [1m1s[0m 7ms/step - loss: 7.3190 - regularization_loss: 0.0000e+00 - total_loss: 7.3190
-[1m179/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.3181 - regularization_loss: 0.0000e+00 - total_loss: 7.3181
-[1m187/315[0m [32m===========[0m[37m=========[0m [1m0s[0m 7ms/step - loss: 7.3170 - regularization_loss: 0.0000e+00 - total_loss: 7.3170
-[1m195/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.3162 - regularization_loss: 0.0000e+00 - total_loss: 7.3162
-[1m203/315[0m [32m============[0m[37m========[0m [1m0s[0m 7ms/step - loss: 7.3151 - regularization_loss: 0.0000e+00 - total_loss: 7.3151
-[1m211/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.3141 - regularization_loss: 0.0000e+00 - total_loss: 7.3141
-[1m219/315[0m [32m=============[0m[37m=======[0m [1m0s[0m 7ms/step - loss: 7.3129 - regularization_loss: 0.0000e+00 - total_loss: 7.3129
-[1m227/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.3119 - regularization_loss: 0.0000e+00 - total_loss: 7.3119
-[1m235/315[0m [32m==============[0m[37m======[0m [1m0s[0m 7ms/step - loss: 7.3110 - regularization_loss: 0.0000e+00 - total_loss: 7.3110
-[1m243/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.3101 - regularization_loss: 0.0000e+00 - total_loss: 7.3101
-[1m251/315[0m [32m===============[0m[37m=====[0m [1m0s[0m 7ms/step - loss: 7.3091 - regularization_loss: 0.0000e+00 - total_loss: 7.3091
-[1m259/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.3082 - regularization_loss: 0.0000e+00 - total_loss: 7.3082
-[1m265/315[0m [32m================[0m[37m====[0m [1m0s[0m 7ms/step - loss: 7.3075 - regularization_loss: 0.0000e+00 - total_loss: 7.3075
-[1m272/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.3067 - regularization_loss: 0.0000e+00 - total_loss: 7.3067
-[1m280/315[0m [32m=================[0m[37m===[0m [1m0s[0m 7ms/step - loss: 7.3058 - regularization_loss: 0.0000e+00 - total_loss: 7.3058
-[1m288/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.3052 - regularization_loss: 0.0000e+00 - total_loss: 7.3052
-[1m296/315[0m [32m==================[0m[37m==[0m [1m0s[0m 7ms/step - loss: 7.3043 - regularization_loss: 0.0000e+00 - total_loss: 7.3043
-[1m304/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.3036 - regularization_loss: 0.0000e+00 - total_loss: 7.3036
-[1m312/315[0m [32m===================[0m[37m=[0m [1m0s[0m 7ms/step - loss: 7.3030 - regularization_loss: 0.0000e+00 - total_loss: 7.3030
-[1m315/315[0m [32m====================[0m[37m[0m [1m2s[0m 7ms/step - loss: 7.2953 - regularization_loss: 0.0000e+00 - total_loss: 7.2953
-Cold Users, 1 Interaction:
-HR@3=0.0065 NDCG@3=0.0045  HR@5=0.0109 NDCG@5=0.0063
-Cold Users, +1 Synthetic:
-HR@3=0.0066 NDCG@3=0.0047  HR@5=0.0111 NDCG@5=0.0065
+Evaluation Results:
+========================================
+k         Hit Rate       NDCG           
+----------------------------------------
+1         0.0091     0.0091
+3         0.0289     0.0203
+5         0.0538     0.0305
+10        0.1088     0.0481
+========================================
