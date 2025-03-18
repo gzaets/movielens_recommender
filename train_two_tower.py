@@ -3,46 +3,9 @@ import tensorflow_recommenders as tfrs
 from tensorflow.keras import layers
 import pandas as pd
 import numpy as np
-import os
+
+# Dummy imports for illustration (replace with actual data processing functions)
 from featurize import featurize_movielens_100k
-from preprocess import create_negative_samples
-
-class UserModel(tf.keras.Model):
-    def __init__(self, num_users, embedding_dim=32):
-        super().__init__()
-        self.user_embedding = layers.Embedding(
-            input_dim=num_users + 1,
-            output_dim=embedding_dim
-        )
-
-    def call(self, inputs):
-        user_id = inputs["user_id"]
-        return self.user_embedding(user_id)
-
-class ItemModel(tf.keras.Model):
-    def __init__(self, num_items, embedding_dim=32):
-        super().__init__()
-        self.item_embedding = layers.Embedding(
-            input_dim=num_items + 1,
-            output_dim=embedding_dim
-        )
-
-    def call(self, inputs):
-        item_id = inputs["item_id"]
-        return self.item_embedding(item_id)
-
-class TwoTowerModel(tfrs.models.Model):
-    def __init__(self, user_model, item_model, loss):
-        super().__init__()
-        self.user_model = user_model
-        self.item_model = item_model
-        self.loss = loss
-        self.task = tfrs.tasks.Retrieval(loss=loss)
-
-    def compute_loss(self, features, training=False):
-        user_embeddings = self.user_model(features)
-        item_embeddings = self.item_model(features)
-        return self.task(user_embeddings, item_embeddings)
 
 def df_to_tf_dataset(df, shuffle=True, batch_size=1024):
     ds = tf.data.Dataset.from_tensor_slices(dict(df))
@@ -51,63 +14,91 @@ def df_to_tf_dataset(df, shuffle=True, batch_size=1024):
     ds = ds.batch(batch_size)
     return ds
 
-def compute_hit_rate(model, test_ds, candidate_ds, k_values):
-    all_predictions = []
-    all_labels = []
-    for batch in test_ds:
-        user_embeddings = model.user_model(batch)
-        item_ids = batch["item_id"]
-        all_predictions.append(user_embeddings.numpy())
-        all_labels.append(item_ids.numpy())
-    all_predictions = np.vstack(all_predictions)
-    all_labels = np.concatenate(all_labels)
-    all_candidates = []
-    all_candidate_ids = []
-    for batch in candidate_ds:
-        item_embeddings = model.item_model(batch)
-        all_candidates.append(item_embeddings.numpy())
-        all_candidate_ids.append(batch["item_id"].numpy())
-    all_candidates = np.vstack(all_candidates)
-    all_candidate_ids = np.concatenate(all_candidate_ids)
-    scores = np.dot(all_predictions, all_candidates.T)
-    hit_rates = {}
-    ndcg_values = {}
-    for k in k_values:
-        top_k_indices = np.argsort(-scores, axis=1)[:, :k]
-        top_k_items = all_candidate_ids[top_k_indices]
-        hits = np.zeros(len(all_labels))
-        for i, (prediction, label) in enumerate(zip(top_k_items, all_labels)):
-            if label in prediction:
-                hits[i] = 1
-        hit_rate = np.mean(hits)
-        hit_rates[k] = hit_rate
-        
-        # Calculate NDCG for all k values
-        ndcg = 0.0
-        for i, (prediction, label) in enumerate(zip(top_k_items, all_labels)):
-            if label in prediction:
-                rank = np.where(prediction == label)[0][0] + 1
-                ndcg += 1.0 / np.log2(rank + 1)
-        ndcg /= len(all_labels)
-        ndcg_values[k] = ndcg
-    return hit_rates, ndcg_values
+class UserModel(tf.keras.Model):
+    def __init__(self, num_users, embedding_dim=32):
+        super().__init__()
+        self.user_embedding = layers.Embedding(input_dim=num_users + 1, output_dim=embedding_dim)
+
+    def call(self, inputs):
+        return self.user_embedding(inputs["user_id"])
+
+class ItemModel(tf.keras.Model):
+    def __init__(self, num_items, embedding_dim=32):
+        super().__init__()
+        self.item_embedding = layers.Embedding(input_dim=num_items + 1, output_dim=embedding_dim)
+
+    def call(self, inputs):
+        return self.item_embedding(inputs["item_id"])
+
+class TwoTowerModel(tfrs.models.Model):
+    def __init__(self, user_model, item_model, loss):
+        super().__init__()
+        self.user_model = user_model
+        self.item_model = item_model
+        self.task = tfrs.tasks.Retrieval(loss=loss)
+
+    def compute_loss(self, features, training=False):
+        user_embeddings = self.user_model(features)
+        item_embeddings = self.item_model(features)
+        return self.task(user_embeddings, item_embeddings)
+
+def calculate_dcg_at_k(relevant_items, recommended_items, k):
+    """Calculate DCG@k for a single user."""
+    dcg = 0.0
+    for i in range(min(k, len(recommended_items))):
+        # If the item at position i is relevant
+        if recommended_items[i] in relevant_items:
+            # DCG formula: rel_i / log_2(i+2), where position is 0-indexed
+            dcg += 1.0 / np.log2(i + 2)
+    return dcg
+
+def calculate_idcg_at_k(n_relevant_items, k):
+    """Calculate ideal DCG@k when all relevant items are ranked at the top."""
+    idcg = 0.0
+    for i in range(min(k, n_relevant_items)):
+        idcg += 1.0 / np.log2(i + 2)
+    return idcg
+
+def calculate_ndcg_at_k(relevant_items, recommended_items, k):
+    """Calculate NDCG@k for a single user."""
+    if not relevant_items:
+        return 0.0
+    
+    dcg = calculate_dcg_at_k(relevant_items, recommended_items, k)
+    idcg = calculate_idcg_at_k(len(relevant_items), k)
+    
+    if idcg == 0:
+        return 0.0
+    return dcg / idcg
 
 if __name__ == "__main__":
     train_df, test_df, users_df, items_df = featurize_movielens_100k()
-    unique_user_ids_str = sorted(train_df["user_id"].astype(str).unique())
-    unique_item_ids_str = sorted(train_df["item_id"].astype(str).unique())
-    user_id_map = {str_id: i + 1 for i, str_id in enumerate(unique_user_ids_str)}
-    item_id_map = {str_id: i + 1 for i, str_id in enumerate(unique_item_ids_str)}
-    train_df["user_id_int"] = train_df["user_id"].astype(str).map(user_id_map)
-    train_df["item_id_int"] = train_df["item_id"].astype(str).map(item_id_map)
-    test_df["user_id_int"] = test_df["user_id"].astype(str).map(user_id_map)
-    test_df["item_id_int"] = test_df["item_id"].astype(str).map(item_id_map)
-    train_df = train_df.dropna(subset=["user_id_int", "item_id_int"])
-    test_df = test_df.dropna(subset=["user_id_int", "item_id_int"])
-    train_df["user_id_int"] = train_df["user_id_int"].astype(np.int32)
-    train_df["item_id_int"] = train_df["item_id_int"].astype(np.int32)
-    test_df["user_id_int"] = test_df["user_id_int"].astype(np.int32)
-    test_df["item_id_int"] = test_df["item_id_int"].astype(np.int32)
+
+    # Print some info about the data
+    print(f"Train size: {len(train_df)} Test size: {len(test_df)}")
+    
+    # Get unique IDs from both train and test to ensure all IDs have mappings
+    all_user_ids = sorted(pd.concat([train_df["user_id"], test_df["user_id"]]).astype(str).unique())
+    all_item_ids = sorted(pd.concat([train_df["item_id"], test_df["item_id"]]).astype(str).unique())
+    
+    user_id_map = {str_id: i + 1 for i, str_id in enumerate(all_user_ids)}
+    item_id_map = {str_id: i + 1 for i, str_id in enumerate(all_item_ids)}
+
+    # Count overlap between train and test sets
+    train_users = set(train_df["user_id"].astype(str))
+    test_users = set(test_df["user_id"].astype(str))
+    cold_users = test_users - train_users
+    print(f"Number of cold users in test: {len(cold_users)}")
+    print(f"Number of warm users in test: {len(test_users) - len(cold_users)}")
+
+    # Convert IDs to integers safely
+    train_df["user_id_int"] = train_df["user_id"].astype(str).map(user_id_map).astype(np.int32)
+    train_df["item_id_int"] = train_df["item_id"].astype(str).map(item_id_map).astype(np.int32)
+    test_df["user_id_int"] = test_df["user_id"].astype(str).map(user_id_map).astype(np.int32)
+    test_df["item_id_int"] = test_df["item_id"].astype(str).map(item_id_map).astype(np.int32)
+
+    # Create datasets
+    train_df["label"] = 1.0
     train_ds = df_to_tf_dataset({
         "user_id": train_df["user_id_int"].values,
         "item_id": train_df["item_id_int"].values,
@@ -116,82 +107,72 @@ if __name__ == "__main__":
         "user_id": test_df["user_id_int"].values,
         "item_id": test_df["item_id_int"].values,
     }, shuffle=False, batch_size=1024)
-    num_users = len(unique_user_ids_str)
-    num_items = len(unique_item_ids_str)
+
+    # Create and train model
+    num_users = len(all_user_ids)
+    num_items = len(all_item_ids)
     embedding_dim = 32
-    user_model = UserModel(num_users, embedding_dim=embedding_dim)
-    item_model = ItemModel(num_items, embedding_dim=embedding_dim)
-    candidates = tf.data.Dataset.from_tensor_slices({
-        "item_id": np.arange(1, num_items + 1, dtype=np.int32)
-    }).batch(128)
+
+    user_model = UserModel(num_users, embedding_dim)
+    item_model = ItemModel(num_items, embedding_dim)
+
     loss = tf.keras.losses.CategoricalCrossentropy(from_logits=True)
-    model = TwoTowerModel(
-        user_model=user_model,
-        item_model=item_model,
-        loss=loss
-    )
-    model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001))
+    model = TwoTowerModel(user_model=user_model, item_model=item_model, loss=loss)
+    model.compile(optimizer=tf.keras.optimizers.Adam(0.001))
+
     print("Training the model...")
     model.fit(train_ds, validation_data=test_ds, epochs=10)
-    print("Evaluating the model...")
-    loss = model.evaluate(test_ds, return_dict=True)
-    print("\nEvaluation loss:", loss)
-    print("\nComputing Hit Rate and NDCG metrics...")
-    k_values = [1, 3, 5, 10]
-    hit_rates, ndcg_values = compute_hit_rate(model, test_ds, candidates, k_values)
-    print("\n----- Hit Rate and NDCG Metrics -----")
-    for k in k_values:
-        print(f"Hit Rate (Top-{k}): {hit_rates[k]:.4f}")
-        print(f"NDCG (Top-{k}): {ndcg_values[k]:.4f}")
-        
+
+    print("\nBuilding retrieval index for evaluation...")
     index = tfrs.layers.factorized_top_k.BruteForce(model.user_model)
-    item_ids_tensor = tf.constant(np.arange(1, num_items + 1, dtype=np.int32))
-    all_item_embeddings = []
-    batch_size = 256
-    for start in range(0, len(item_ids_tensor), batch_size):
-        end = min(start + batch_size, len(item_ids_tensor))
-        batch_ids = item_ids_tensor[start:end]
-        batch_embeddings = model.item_model({"item_id": batch_ids})
-        all_item_embeddings.append(batch_embeddings)
-    all_item_embeddings = tf.concat(all_item_embeddings, axis=0)
-    print(f"Item IDs tensor shape: {item_ids_tensor.shape}")
-    print(f"All item embeddings shape: {all_item_embeddings.shape}")
-    if len(all_item_embeddings.shape) == 1:
-        all_item_embeddings = tf.reshape(all_item_embeddings, [all_item_embeddings.shape[0], embedding_dim])
-        print(f"Reshaped all item embeddings to: {all_item_embeddings.shape}")
-    elif len(all_item_embeddings.shape) > 2:
-        all_item_embeddings = tf.reshape(all_item_embeddings, [all_item_embeddings.shape[0], -1])
-        print(f"Flattened all item embeddings to: {all_item_embeddings.shape}")
-    if item_ids_tensor.shape[0] != all_item_embeddings.shape[0]:
-        print("Warning: Dimension mismatch between item_ids_tensor and all_item_embeddings")
-        min_dim = min(item_ids_tensor.shape[0], all_item_embeddings.shape[0])
-        item_ids_tensor = item_ids_tensor[:min_dim]
-        all_item_embeddings = all_item_embeddings[:min_dim]
-        print(f"Adjusted dimensions to: {min_dim}")
-    try:
-        item_ids_tensor_2d = tf.reshape(item_ids_tensor, [-1, 1])
-        index.index_from_dataset(
-            tf.data.Dataset.zip((
-                tf.data.Dataset.from_tensor_slices(item_ids_tensor),
-                tf.data.Dataset.from_tensor_slices(all_item_embeddings)
-            )).batch(128)
-        )
-        print("Successfully indexed embeddings!")
-        id_to_str_map = {v: k for k, v in item_id_map.items()}
-        sample_user_id = user_id_map[unique_user_ids_str[0]]
-        sample_user_tensor = tf.constant([sample_user_id], dtype=tf.int32)
-        _, top_item_ids = index({"user_id": sample_user_tensor}, k=10)
-        top_item_str_ids = [id_to_str_map.get(int(id), "Unknown") for id in top_item_ids.numpy()[0]]
-        print("\nRecommendations for user", unique_user_ids_str[0])
-        print("Top 10 recommended items:", top_item_str_ids)
-        user_history = train_df[train_df["user_id"] == unique_user_ids_str[0]]["item_id"].tolist()
-        print(f"This user has interacted with {len(user_history)} items in the training set")
-    except Exception as e:
-        print("Error in indexing or recommendation:", e)
-        import traceback
-        traceback.print_exc()
-    print("\nID Mapping Examples:")
-    for i in range(min(5, len(unique_user_ids_str))):
-        print(f"User: Original ID={unique_user_ids_str[i]}, Integer ID={user_id_map[unique_user_ids_str[i]]}")
-    for i in range(min(5, len(unique_item_ids_str))):
-        print(f"Item: Original ID={unique_item_ids_str[i]}, Integer ID={item_id_map[unique_item_ids_str[i]]}")
+    item_dataset = tf.data.Dataset.from_tensor_slices({"item_id": tf.range(1, num_items + 1, dtype=tf.int32)}).batch(256)
+    index.index_from_dataset(tf.data.Dataset.zip((
+        item_dataset.map(lambda x: x["item_id"]),
+        item_dataset.map(lambda x: model.item_model({"item_id": x["item_id"]}))
+    )))
+
+    print("\nEvaluating the model...")
+    # Only evaluate on warm users (those in the training set)
+    warm_user_ids = list(set(test_df["user_id_int"]).intersection(set(train_df["user_id_int"])))
+    
+    # List of k values to evaluate
+    k_values = [1, 3, 5, 10]
+    max_k = max(k_values)
+    
+    # Dictionaries to store metrics
+    hit_rates = {k: 0 for k in k_values}
+    ndcgs = {k: 0 for k in k_values}
+    
+    def get_true_items_for_user(user_id, df):
+        return set(df[df["user_id_int"] == user_id]["item_id_int"])
+
+    # Evaluate for each user
+    for u in warm_user_ids:
+        _, top_items = index({"user_id": tf.constant([u])}, k=max_k)
+        top_items = top_items[0].numpy()
+        true_items = get_true_items_for_user(u, test_df)
+        
+        # Calculate metrics for each k value
+        for k in k_values:
+            # Hit Rate calculation
+            if any(item in true_items for item in top_items[:k]):
+                hit_rates[k] += 1
+            
+            # NDCG calculation
+            ndcgs[k] += calculate_ndcg_at_k(true_items, top_items, k)
+    
+    # Normalize metrics by number of users
+    num_users = len(warm_user_ids)
+    if num_users > 0:
+        for k in k_values:
+            hit_rates[k] /= num_users
+            ndcgs[k] /= num_users
+    
+    # Display results
+    print("\nEvaluation Results:")
+    print("=" * 40)
+    print(f"{'k':<10}{'Hit Rate':<15}{'NDCG':<15}")
+    print("-" * 40)
+    for k in k_values:
+        print(f"{k:<10}{hit_rates[k]:.4f}{'':5}{ndcgs[k]:.4f}")
+    print("=" * 40)
