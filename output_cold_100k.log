@@ -1,0 +1,85 @@
+Ratings shape: (100000, 4)
+Users shape: (943, 5)
+Items shape: (1682, 24)
+Train size: 80000 Test size: 20000
+Number of cold users in test: 0
+Number of warm users in test: 940
+
+=== Training with cold users (only 1 interaction each) ===
+Epoch 1/5
+
+[1m 1/63[0m [37m====================[0m [1m19s[0m 310ms/step - loss: 6.9313 - regularization_loss: 0.0000e+00 - total_loss: 6.9313
+[1m24/63[0m [32m=======[0m[37m=============[0m [1m0s[0m 2ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316   
+[1m49/63[0m [32m===============[0m[37m=====[0m [1m0s[0m 2ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.9062 - regularization_loss: 0.0000e+00 - total_loss: 6.9062
+Epoch 2/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.9278 - regularization_loss: 0.0000e+00 - total_loss: 6.9278
+[1m27/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9297 - regularization_loss: 0.0000e+00 - total_loss: 6.9297
+[1m52/63[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.9296 - regularization_loss: 0.0000e+00 - total_loss: 6.9296
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.9040 - regularization_loss: 0.0000e+00 - total_loss: 6.9040
+Epoch 3/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 8ms/step - loss: 6.9245 - regularization_loss: 0.0000e+00 - total_loss: 6.9245
+[1m27/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9255 - regularization_loss: 0.0000e+00 - total_loss: 6.9255
+[1m53/63[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.9237 - regularization_loss: 0.0000e+00 - total_loss: 6.9237
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.8970 - regularization_loss: 0.0000e+00 - total_loss: 6.8970
+Epoch 4/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 8ms/step - loss: 6.9106 - regularization_loss: 0.0000e+00 - total_loss: 6.9106
+[1m26/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9075 - regularization_loss: 0.0000e+00 - total_loss: 6.9075
+[1m51/63[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.8998 - regularization_loss: 0.0000e+00 - total_loss: 6.8998
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.8692 - regularization_loss: 0.0000e+00 - total_loss: 6.8692
+Epoch 5/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 7ms/step - loss: 6.8615 - regularization_loss: 0.0000e+00 - total_loss: 6.8615
+[1m27/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.8504 - regularization_loss: 0.0000e+00 - total_loss: 6.8504
+[1m54/63[0m [32m=================[0m[37m===[0m [1m0s[0m 2ms/step - loss: 6.8338 - regularization_loss: 0.0000e+00 - total_loss: 6.8338
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.8015 - regularization_loss: 0.0000e+00 - total_loss: 6.8015
+Results (Cold Users, 1 Interaction):
+HR@3 = 0.0102, NDCG@3 = 0.0071
+HR@5 = 0.0169, NDCG@5 = 0.0099
+
+=== Training with cold users (1 real + 1 synthetic interaction) ===
+Epoch 1/5
+
+[1m 1/63[0m [37m====================[0m [1m11s[0m 183ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m27/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316   
+[1m54/63[0m [32m=================[0m[37m===[0m [1m0s[0m 2ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.9170 - regularization_loss: 0.0000e+00 - total_loss: 6.9170
+Epoch 2/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 7ms/step - loss: 6.9280 - regularization_loss: 0.0000e+00 - total_loss: 6.9280
+[1m26/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9296 - regularization_loss: 0.0000e+00 - total_loss: 6.9296
+[1m53/63[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.9296 - regularization_loss: 0.0000e+00 - total_loss: 6.9296
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.9148 - regularization_loss: 0.0000e+00 - total_loss: 6.9148
+Epoch 3/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 7ms/step - loss: 6.9247 - regularization_loss: 0.0000e+00 - total_loss: 6.9247
+[1m28/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9254 - regularization_loss: 0.0000e+00 - total_loss: 6.9254
+[1m55/63[0m [32m=================[0m[37m===[0m [1m0s[0m 2ms/step - loss: 6.9237 - regularization_loss: 0.0000e+00 - total_loss: 6.9237
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.9081 - regularization_loss: 0.0000e+00 - total_loss: 6.9081
+Epoch 4/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 7ms/step - loss: 6.9108 - regularization_loss: 0.0000e+00 - total_loss: 6.9108
+[1m27/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.9078 - regularization_loss: 0.0000e+00 - total_loss: 6.9078
+[1m53/63[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.9001 - regularization_loss: 0.0000e+00 - total_loss: 6.9001
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.8816 - regularization_loss: 0.0000e+00 - total_loss: 6.8816
+Epoch 5/5
+
+[1m 1/63[0m [37m====================[0m [1m0s[0m 8ms/step - loss: 6.8624 - regularization_loss: 0.0000e+00 - total_loss: 6.8624
+[1m28/63[0m [32m========[0m[37m============[0m [1m0s[0m 2ms/step - loss: 6.8523 - regularization_loss: 0.0000e+00 - total_loss: 6.8523
+[1m55/63[0m [32m=================[0m[37m===[0m [1m0s[0m 2ms/step - loss: 6.8361 - regularization_loss: 0.0000e+00 - total_loss: 6.8361
+[1m63/63[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.8164 - regularization_loss: 0.0000e+00 - total_loss: 6.8164
+Results (Cold Users, +1 Synthetic):
+HR@3 = 0.0099, NDCG@3 = 0.0071
+HR@5 = 0.0163, NDCG@5 = 0.0098
+
+================== Summary ==================
+Model A (1 Interaction for Cold Users):
+  HR@3 = 0.0102, NDCG@3 = 0.0071
+  HR@5 = 0.0169, NDCG@5 = 0.0099
+
+Model B (1 Real + 1 Synthetic for Cold Users):
+  HR@3 = 0.0099, NDCG@3 = 0.0071
+  HR@5 = 0.0163, NDCG@5 = 0.0098
