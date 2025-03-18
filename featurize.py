@@ -1,20 +1,19 @@
+# featurize_100k.py
 import pandas as pd
-from sklearn.model_selection import train_test_split
 import os
 
 def featurize_movielens_100k(data_path='data/ml-100k'):
+    # Load ratings, users, and items
     ratings = pd.read_csv(
         os.path.join(data_path, 'u.data'),
         sep='\t',
         names=['user_id', 'item_id', 'rating', 'timestamp']
     )
-
     users = pd.read_csv(
         os.path.join(data_path, 'u.user'),
         sep='|',
         names=['user_id', 'age', 'gender', 'occupation', 'zip_code']
     )
-
     items = pd.read_csv(
         os.path.join(data_path, 'u.item'),
         sep='|',
@@ -23,23 +22,31 @@ def featurize_movielens_100k(data_path='data/ml-100k'):
         encoding='latin-1'
     )
 
-    print("Ratings shape:", ratings.shape)
+    # Sort by timestamp
+    ratings = ratings.sort_values(['user_id', 'timestamp'])
+
+    train_rows = []
+    test_rows = []
+
+    # Group by user, do leave-one-out
+    for uid, group in ratings.groupby('user_id'):
+        if len(group) < 2:
+            continue
+        test_item = group.iloc[-1]
+        train_items = group.iloc[:-1]
+        test_rows.append(test_item)
+        train_rows.append(train_items)
+
+    train_df = pd.concat(train_rows, axis=0)
+    test_df = pd.DataFrame(test_rows)
+
+    print("After leave-one-out split:")
+    print("Train size:", len(train_df), "Test size:", len(test_df))
     print("Users shape:", users.shape)
     print("Items shape:", items.shape)
 
-    train, test = train_test_split(ratings, test_size=0.2, random_state=42)
-    print("Train size:", train.shape[0], "Test size:", test.shape[0])
-
-    train_user_ids = set(train['user_id'].unique())
-    test_user_ids = set(test['user_id'].unique())
-    cold_users = test_user_ids - train_user_ids
-    warm_users = test_user_ids & train_user_ids
-
-    print(f"Number of cold users in test: {len(cold_users)}")
-    print(f"Number of warm users in test: {len(warm_users)}")
-
-    return train, test, users, items
+    return train_df, test_df, users, items
 
 if __name__ == "__main__":
-    train_df, test_df, users_df, items_df = featurize_movielens_100k()
+    tr, te, u, i = featurize_movielens_100k()
     print("Featurization complete.")

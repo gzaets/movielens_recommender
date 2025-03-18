@@ -1,84 +1,54 @@
-Ratings shape: (100000, 4)
+After leave-one-out split:
+Train size: 99057 Test size: 943
 Users shape: (943, 5)
 Items shape: (1682, 24)
-Train size: 80000 Test size: 20000
-Number of cold users in test: 0
-Number of warm users in test: 940
-Train size: 80000 Test size: 20000
-Number of cold users in test: 0
-Number of warm users in test: 940
+Train size: 99057 Test size: 943
 Training the model...
-Epoch 1/10
+Epoch 1/5
 
- 1/79 [..............................] - ETA: 26s - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
-25/79 [========>.....................] - ETA: 0s - loss: 6.9315 - regularization_loss: 0.0000e+00 - total_loss: 6.9315 
-50/79 [=================>............] - ETA: 0s - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-76/79 [===========================>..] - ETA: 0s - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-79/79 [==============================] - 1s 3ms/step - loss: 6.8796 - regularization_loss: 0.0000e+00 - total_loss: 6.8796 - val_loss: 6.2989 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2989
-Epoch 2/10
+ 1/97 [..............................] - ETA: 34s - loss: 0.0121 - regularization_loss: 0.0000e+00 - total_loss: 0.0121
+18/97 [====>.........................] - ETA: 0s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120 
+36/97 [==========>...................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+54/97 [===============>..............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+71/97 [====================>.........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+89/97 [==========================>...] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+97/97 [==============================] - 1s 3ms/step - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+Epoch 2/5
 
- 1/79 [..............................] - ETA: 0s - loss: 6.9279 - regularization_loss: 0.0000e+00 - total_loss: 6.9279
-27/79 [=========>....................] - ETA: 0s - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
-53/79 [===================>..........] - ETA: 0s - loss: 6.9292 - regularization_loss: 0.0000e+00 - total_loss: 6.9292
-79/79 [==============================] - 0s 2ms/step - loss: 6.8766 - regularization_loss: 0.0000e+00 - total_loss: 6.8766 - val_loss: 6.2964 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2964
-Epoch 3/10
+ 1/97 [..............................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+19/97 [====>.........................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+37/97 [==========>...................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+55/97 [================>.............] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+72/97 [=====================>........] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+90/97 [==========================>...] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+97/97 [==============================] - 0s 3ms/step - loss: 0.0116 - regularization_loss: 0.0000e+00 - total_loss: 0.0116
+Epoch 3/5
 
- 1/79 [..............................] - ETA: 0s - loss: 6.9222 - regularization_loss: 0.0000e+00 - total_loss: 6.9222
-27/79 [=========>....................] - ETA: 0s - loss: 6.9225 - regularization_loss: 0.0000e+00 - total_loss: 6.9225
-52/79 [==================>...........] - ETA: 0s - loss: 6.9198 - regularization_loss: 0.0000e+00 - total_loss: 6.9198
-78/79 [============================>.] - ETA: 0s - loss: 6.9157 - regularization_loss: 0.0000e+00 - total_loss: 6.9157
-79/79 [==============================] - 0s 2ms/step - loss: 6.8632 - regularization_loss: 0.0000e+00 - total_loss: 6.8632 - val_loss: 6.2769 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2769
-Epoch 4/10
+ 1/97 [..............................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+19/97 [====>.........................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+36/97 [==========>...................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+54/97 [===============>..............] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+71/97 [====================>.........] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+89/97 [==========================>...] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+97/97 [==============================] - 0s 3ms/step - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+Epoch 4/5
 
- 1/79 [..............................] - ETA: 0s - loss: 6.8925 - regularization_loss: 0.0000e+00 - total_loss: 6.8925
-25/79 [========>.....................] - ETA: 0s - loss: 6.8890 - regularization_loss: 0.0000e+00 - total_loss: 6.8890
-51/79 [==================>...........] - ETA: 0s - loss: 6.8789 - regularization_loss: 0.0000e+00 - total_loss: 6.8789
-76/79 [===========================>..] - ETA: 0s - loss: 6.8681 - regularization_loss: 0.0000e+00 - total_loss: 6.8681
-79/79 [==============================] - 0s 2ms/step - loss: 6.8142 - regularization_loss: 0.0000e+00 - total_loss: 6.8142 - val_loss: 6.2236 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2236
-Epoch 5/10
+ 1/97 [..............................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+18/97 [====>.........................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+35/97 [=========>....................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+53/97 [===============>..............] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+70/97 [====================>.........] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+87/97 [=========================>....] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+97/97 [==============================] - 0s 3ms/step - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+Epoch 5/5
 
- 1/79 [..............................] - ETA: 0s - loss: 6.8145 - regularization_loss: 0.0000e+00 - total_loss: 6.8145
-26/79 [========>.....................] - ETA: 0s - loss: 6.8116 - regularization_loss: 0.0000e+00 - total_loss: 6.8116
-51/79 [==================>...........] - ETA: 0s - loss: 6.7989 - regularization_loss: 0.0000e+00 - total_loss: 6.7989
-76/79 [===========================>..] - ETA: 0s - loss: 6.7871 - regularization_loss: 0.0000e+00 - total_loss: 6.7871
-79/79 [==============================] - 0s 2ms/step - loss: 6.7331 - regularization_loss: 0.0000e+00 - total_loss: 6.7331 - val_loss: 6.1625 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1625
-Epoch 6/10
-
- 1/79 [..............................] - ETA: 0s - loss: 6.7244 - regularization_loss: 0.0000e+00 - total_loss: 6.7244
-25/79 [========>.....................] - ETA: 0s - loss: 6.7296 - regularization_loss: 0.0000e+00 - total_loss: 6.7296
-50/79 [=================>............] - ETA: 0s - loss: 6.7198 - regularization_loss: 0.0000e+00 - total_loss: 6.7198
-76/79 [===========================>..] - ETA: 0s - loss: 6.7099 - regularization_loss: 0.0000e+00 - total_loss: 6.7099
-79/79 [==============================] - 0s 2ms/step - loss: 6.6560 - regularization_loss: 0.0000e+00 - total_loss: 6.6560 - val_loss: 6.1104 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1104
-Epoch 7/10
-
- 1/79 [..............................] - ETA: 0s - loss: 6.6514 - regularization_loss: 0.0000e+00 - total_loss: 6.6514
-26/79 [========>.....................] - ETA: 0s - loss: 6.6613 - regularization_loss: 0.0000e+00 - total_loss: 6.6613
-52/79 [==================>...........] - ETA: 0s - loss: 6.6533 - regularization_loss: 0.0000e+00 - total_loss: 6.6533
-78/79 [============================>.] - ETA: 0s - loss: 6.6454 - regularization_loss: 0.0000e+00 - total_loss: 6.6454
-79/79 [==============================] - 0s 2ms/step - loss: 6.5921 - regularization_loss: 0.0000e+00 - total_loss: 6.5921 - val_loss: 6.0679 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0679
-Epoch 8/10
-
- 1/79 [..............................] - ETA: 0s - loss: 6.5926 - regularization_loss: 0.0000e+00 - total_loss: 6.5926
-26/79 [========>.....................] - ETA: 0s - loss: 6.6058 - regularization_loss: 0.0000e+00 - total_loss: 6.6058
-51/79 [==================>...........] - ETA: 0s - loss: 6.6002 - regularization_loss: 0.0000e+00 - total_loss: 6.6002
-76/79 [===========================>..] - ETA: 0s - loss: 6.5943 - regularization_loss: 0.0000e+00 - total_loss: 6.5943
-79/79 [==============================] - 0s 2ms/step - loss: 6.5396 - regularization_loss: 0.0000e+00 - total_loss: 6.5396 - val_loss: 6.0345 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0345
-Epoch 9/10
-
- 1/79 [..............................] - ETA: 0s - loss: 6.5459 - regularization_loss: 0.0000e+00 - total_loss: 6.5459
-26/79 [========>.....................] - ETA: 0s - loss: 6.5606 - regularization_loss: 0.0000e+00 - total_loss: 6.5606
-52/79 [==================>...........] - ETA: 0s - loss: 6.5560 - regularization_loss: 0.0000e+00 - total_loss: 6.5560
-77/79 [============================>.] - ETA: 0s - loss: 6.5510 - regularization_loss: 0.0000e+00 - total_loss: 6.5510
-79/79 [==============================] - 0s 2ms/step - loss: 6.4963 - regularization_loss: 0.0000e+00 - total_loss: 6.4963 - val_loss: 6.0087 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0087
-Epoch 10/10
-
- 1/79 [..............................] - ETA: 0s - loss: 6.5060 - regularization_loss: 0.0000e+00 - total_loss: 6.5060
-26/79 [========>.....................] - ETA: 0s - loss: 6.5227 - regularization_loss: 0.0000e+00 - total_loss: 6.5227
-52/79 [==================>...........] - ETA: 0s - loss: 6.5193 - regularization_loss: 0.0000e+00 - total_loss: 6.5193
-77/79 [============================>.] - ETA: 0s - loss: 6.5152 - regularization_loss: 0.0000e+00 - total_loss: 6.5152
-79/79 [==============================] - 0s 2ms/step - loss: 6.4599 - regularization_loss: 0.0000e+00 - total_loss: 6.4599 - val_loss: 5.9884 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9884
-
-Building retrieval index for evaluation...
+ 1/97 [..............................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+18/97 [====>.........................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+36/97 [==========>...................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+54/97 [===============>..............] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+72/97 [=====================>........] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+90/97 [==========================>...] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+97/97 [==============================] - 0s 3ms/step - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
 
 Evaluating the model...
 
@@ -86,8 +56,8 @@ Evaluation Results:
 ========================================
 k         Hit Rate       NDCG           
 ----------------------------------------
-1         0.0543     0.0543
-3         0.1628     0.0571
-5         0.2553     0.0592
-10        0.4660     0.0672
+1         0.0127     0.0127
+3         0.0424     0.0297
+5         0.0668     0.0396
+10        0.1188     0.0561
 ========================================

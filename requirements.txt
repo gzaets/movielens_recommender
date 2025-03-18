@@ -1,6 +1,9 @@
+torch
+torchvision
+torchaudio
 tensorflow
 tensorflow-recommenders
-tensorflow_ranking
+tensorflow-ranking
 pandas
 scikit-learn
 numpy

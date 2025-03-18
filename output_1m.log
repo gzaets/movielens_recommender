@@ -1,393 +1,107 @@
-Ratings shape: (1000209, 4)
+
+After rating==5 & 10-core + LOO:
+Train size: 214579   Test size: 4814
+Unique users in train: 4814, in test: 4814
+
 Users shape: (6040, 5)
-Movies shape: (3883, 21)
-Train size: 800167 Test size: 200042
-Number of cold users in test: 0
-Number of warm users in test: 6038
-Train size: 800167  Test size: 200042
-Number of cold users in test: 0
-Number of warm users in test: 6038
-Number of unique users: 6040
-Number of unique items: 3683
+Movies shape: (3883, 3)
 
-Training the model...
-Epoch 1/8
+Final Train size: 214579, Test size: 4814
+Total # Mapped Users: 4814 Total # Mapped Items: 3224
 
-  1/782 [..............................] - ETA: 3:51 - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
- 21/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316  
- 41/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
- 60/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
- 81/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-102/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-124/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-143/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-163/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-183/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-204/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-225/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-246/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-267/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-288/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-308/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-329/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-350/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-372/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-393/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-415/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-436/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-457/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-476/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-497/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-518/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-539/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-559/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-580/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-600/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
-621/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
-642/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-662/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-683/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-704/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-725/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-747/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
-766/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9317 - regularization_loss: 0.0000e+00 - total_loss: 6.9317
-782/782 [==============================] - 3s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.8176 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.8176
-Epoch 2/8
+Training the model (5 epochs)...
+Epoch 1/5
 
-  1/782 [..............................] - ETA: 2s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9311 - regularization_loss: 0.0000e+00 - total_loss: 6.9311
- 21/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
- 41/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
- 61/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
- 81/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-101/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-122/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-143/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-163/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-183/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-204/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-224/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-245/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-266/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-287/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-308/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-330/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-349/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-369/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-384/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-405/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-426/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-447/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-467/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-487/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-507/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-528/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-548/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-569/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-588/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-608/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-629/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-650/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-671/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-692/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-714/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-735/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-754/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-775/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9312 - regularization_loss: 0.0000e+00 - total_loss: 6.9312
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9289 - regularization_loss: 0.0000e+00 - total_loss: 6.9289 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.8174 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.8174
-Epoch 3/8
+  1/210 [..............................] - ETA: 1:17 - loss: 0.0121 - regularization_loss: 0.0000e+00 - total_loss: 0.0121
+ 16/210 [=>............................] - ETA: 0s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120  
+ 33/210 [===>..........................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 49/210 [======>.......................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 65/210 [========>.....................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 79/210 [==========>...................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+ 95/210 [============>.................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+108/210 [==============>...............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+118/210 [===============>..............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+130/210 [=================>............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+144/210 [===================>..........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+158/210 [=====================>........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+175/210 [========================>.....] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+191/210 [==========================>...] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+208/210 [============================>.] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+210/210 [==============================] - 1s 4ms/step - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+Epoch 2/5
 
-  1/782 [..............................] - ETA: 2s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
- 22/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
- 42/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9306 - regularization_loss: 0.0000e+00 - total_loss: 6.9306
- 63/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9306 - regularization_loss: 0.0000e+00 - total_loss: 6.9306
- 83/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9306 - regularization_loss: 0.0000e+00 - total_loss: 6.9306
-103/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-123/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-144/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-163/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-183/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-204/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-225/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-243/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-263/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9305 - regularization_loss: 0.0000e+00 - total_loss: 6.9305
-284/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-304/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-324/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-344/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-364/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-383/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-403/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-424/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9304 - regularization_loss: 0.0000e+00 - total_loss: 6.9304
-445/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9303 - regularization_loss: 0.0000e+00 - total_loss: 6.9303
-466/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9303 - regularization_loss: 0.0000e+00 - total_loss: 6.9303
-487/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9303 - regularization_loss: 0.0000e+00 - total_loss: 6.9303
-508/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9303 - regularization_loss: 0.0000e+00 - total_loss: 6.9303
-529/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9303 - regularization_loss: 0.0000e+00 - total_loss: 6.9303
-548/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-568/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-588/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-609/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-627/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-648/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9302 - regularization_loss: 0.0000e+00 - total_loss: 6.9302
-668/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9301 - regularization_loss: 0.0000e+00 - total_loss: 6.9301
-689/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9301 - regularization_loss: 0.0000e+00 - total_loss: 6.9301
-709/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9301 - regularization_loss: 0.0000e+00 - total_loss: 6.9301
-729/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9301 - regularization_loss: 0.0000e+00 - total_loss: 6.9301
-749/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9300 - regularization_loss: 0.0000e+00 - total_loss: 6.9300
-769/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9300 - regularization_loss: 0.0000e+00 - total_loss: 6.9300
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9277 - regularization_loss: 0.0000e+00 - total_loss: 6.9277 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.8160 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.8160
-Epoch 4/8
+  1/210 [..............................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+ 18/210 [=>............................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+ 34/210 [===>..........................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 48/210 [=====>........................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 62/210 [=======>......................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 77/210 [==========>...................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+ 90/210 [===========>..................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+105/210 [==============>...............] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+121/210 [================>.............] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+138/210 [==================>...........] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+155/210 [=====================>........] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+171/210 [=======================>......] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+187/210 [=========================>....] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+204/210 [============================>.] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+210/210 [==============================] - 1s 3ms/step - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+Epoch 3/5
 
-  1/782 [..............................] - ETA: 3s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9289 - regularization_loss: 0.0000e+00 - total_loss: 6.9289
- 22/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9285 - regularization_loss: 0.0000e+00 - total_loss: 6.9285
- 41/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9285 - regularization_loss: 0.0000e+00 - total_loss: 6.9285
- 62/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9285 - regularization_loss: 0.0000e+00 - total_loss: 6.9285
- 83/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9284 - regularization_loss: 0.0000e+00 - total_loss: 6.9284
-105/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9283 - regularization_loss: 0.0000e+00 - total_loss: 6.9283
-123/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9283 - regularization_loss: 0.0000e+00 - total_loss: 6.9283
-144/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9282 - regularization_loss: 0.0000e+00 - total_loss: 6.9282
-164/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9282 - regularization_loss: 0.0000e+00 - total_loss: 6.9282
-185/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9281 - regularization_loss: 0.0000e+00 - total_loss: 6.9281
-205/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9281 - regularization_loss: 0.0000e+00 - total_loss: 6.9281
-223/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9280 - regularization_loss: 0.0000e+00 - total_loss: 6.9280
-240/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9280 - regularization_loss: 0.0000e+00 - total_loss: 6.9280
-258/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9279 - regularization_loss: 0.0000e+00 - total_loss: 6.9279
-277/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9279 - regularization_loss: 0.0000e+00 - total_loss: 6.9279
-298/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9278 - regularization_loss: 0.0000e+00 - total_loss: 6.9278
-318/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9278 - regularization_loss: 0.0000e+00 - total_loss: 6.9278
-339/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9277 - regularization_loss: 0.0000e+00 - total_loss: 6.9277
-359/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9276 - regularization_loss: 0.0000e+00 - total_loss: 6.9276
-379/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9276 - regularization_loss: 0.0000e+00 - total_loss: 6.9276
-399/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9275 - regularization_loss: 0.0000e+00 - total_loss: 6.9275
-420/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9274 - regularization_loss: 0.0000e+00 - total_loss: 6.9274
-440/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9274 - regularization_loss: 0.0000e+00 - total_loss: 6.9274
-461/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9273 - regularization_loss: 0.0000e+00 - total_loss: 6.9273
-482/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9272 - regularization_loss: 0.0000e+00 - total_loss: 6.9272
-502/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9271 - regularization_loss: 0.0000e+00 - total_loss: 6.9271
-519/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9271 - regularization_loss: 0.0000e+00 - total_loss: 6.9271
-539/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9270 - regularization_loss: 0.0000e+00 - total_loss: 6.9270
-560/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9269 - regularization_loss: 0.0000e+00 - total_loss: 6.9269
-580/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9268 - regularization_loss: 0.0000e+00 - total_loss: 6.9268
-600/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9267 - regularization_loss: 0.0000e+00 - total_loss: 6.9267
-620/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9266 - regularization_loss: 0.0000e+00 - total_loss: 6.9266
-641/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9266 - regularization_loss: 0.0000e+00 - total_loss: 6.9266
-661/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9264 - regularization_loss: 0.0000e+00 - total_loss: 6.9264
-680/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9264 - regularization_loss: 0.0000e+00 - total_loss: 6.9264
-700/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9263 - regularization_loss: 0.0000e+00 - total_loss: 6.9263
-715/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9262 - regularization_loss: 0.0000e+00 - total_loss: 6.9262
-735/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9261 - regularization_loss: 0.0000e+00 - total_loss: 6.9261
-756/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9260 - regularization_loss: 0.0000e+00 - total_loss: 6.9260
-776/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9259 - regularization_loss: 0.0000e+00 - total_loss: 6.9259
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9236 - regularization_loss: 0.0000e+00 - total_loss: 6.9236 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.8098 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.8098
-Epoch 5/8
+  1/210 [..............................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+ 17/210 [=>............................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+ 33/210 [===>..........................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+ 51/210 [======>.......................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+ 69/210 [========>.....................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+ 86/210 [===========>..................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+102/210 [=============>................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+120/210 [================>.............] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+138/210 [==================>...........] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+156/210 [=====================>........] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+174/210 [=======================>......] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+192/210 [==========================>...] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+210/210 [==============================] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+210/210 [==============================] - 1s 3ms/step - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+Epoch 4/5
 
-  1/782 [..............................] - ETA: 3s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9223 - regularization_loss: 0.0000e+00 - total_loss: 6.9223
- 21/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9212 - regularization_loss: 0.0000e+00 - total_loss: 6.9212
- 41/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9210 - regularization_loss: 0.0000e+00 - total_loss: 6.9210
- 62/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9209 - regularization_loss: 0.0000e+00 - total_loss: 6.9209
- 83/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9207 - regularization_loss: 0.0000e+00 - total_loss: 6.9207
-104/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9204 - regularization_loss: 0.0000e+00 - total_loss: 6.9204
-125/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9203 - regularization_loss: 0.0000e+00 - total_loss: 6.9203
-146/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9201 - regularization_loss: 0.0000e+00 - total_loss: 6.9201
-166/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9199 - regularization_loss: 0.0000e+00 - total_loss: 6.9199
-186/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9197 - regularization_loss: 0.0000e+00 - total_loss: 6.9197
-207/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9196 - regularization_loss: 0.0000e+00 - total_loss: 6.9196
-227/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9194 - regularization_loss: 0.0000e+00 - total_loss: 6.9194
-248/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9192 - regularization_loss: 0.0000e+00 - total_loss: 6.9192
-268/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9190 - regularization_loss: 0.0000e+00 - total_loss: 6.9190
-289/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9188 - regularization_loss: 0.0000e+00 - total_loss: 6.9188
-310/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9186 - regularization_loss: 0.0000e+00 - total_loss: 6.9186
-331/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9184 - regularization_loss: 0.0000e+00 - total_loss: 6.9184
-351/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9182 - regularization_loss: 0.0000e+00 - total_loss: 6.9182
-373/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9179 - regularization_loss: 0.0000e+00 - total_loss: 6.9179
-392/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9178 - regularization_loss: 0.0000e+00 - total_loss: 6.9178
-413/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9176 - regularization_loss: 0.0000e+00 - total_loss: 6.9176
-433/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9173 - regularization_loss: 0.0000e+00 - total_loss: 6.9173
-453/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9171 - regularization_loss: 0.0000e+00 - total_loss: 6.9171
-472/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9169 - regularization_loss: 0.0000e+00 - total_loss: 6.9169
-493/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9167 - regularization_loss: 0.0000e+00 - total_loss: 6.9167
-513/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9164 - regularization_loss: 0.0000e+00 - total_loss: 6.9164
-534/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9162 - regularization_loss: 0.0000e+00 - total_loss: 6.9162
-554/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9160 - regularization_loss: 0.0000e+00 - total_loss: 6.9160
-575/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9157 - regularization_loss: 0.0000e+00 - total_loss: 6.9157
-596/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9155 - regularization_loss: 0.0000e+00 - total_loss: 6.9155
-617/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9152 - regularization_loss: 0.0000e+00 - total_loss: 6.9152
-638/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9150 - regularization_loss: 0.0000e+00 - total_loss: 6.9150
-659/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9147 - regularization_loss: 0.0000e+00 - total_loss: 6.9147
-680/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9144 - regularization_loss: 0.0000e+00 - total_loss: 6.9144
-701/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9142 - regularization_loss: 0.0000e+00 - total_loss: 6.9142
-721/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9139 - regularization_loss: 0.0000e+00 - total_loss: 6.9139
-742/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9136 - regularization_loss: 0.0000e+00 - total_loss: 6.9136
-763/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9134 - regularization_loss: 0.0000e+00 - total_loss: 6.9134
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9109 - regularization_loss: 0.0000e+00 - total_loss: 6.9109 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.7931 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.7931
-Epoch 6/8
+  1/210 [..............................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 17/210 [=>............................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 34/210 [===>..........................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 48/210 [=====>........................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 62/210 [=======>......................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 78/210 [==========>...................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+ 95/210 [============>.................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+113/210 [===============>..............] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+131/210 [=================>............] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+148/210 [====================>.........] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+166/210 [======================>.......] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+184/210 [=========================>....] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+202/210 [===========================>..] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+210/210 [==============================] - 1s 3ms/step - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+Epoch 5/5
 
-  1/782 [..............................] - ETA: 2s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9029 - regularization_loss: 0.0000e+00 - total_loss: 6.9029
- 21/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9022 - regularization_loss: 0.0000e+00 - total_loss: 6.9022
- 41/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9019 - regularization_loss: 0.0000e+00 - total_loss: 6.9019
- 61/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9016 - regularization_loss: 0.0000e+00 - total_loss: 6.9016
- 81/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9011 - regularization_loss: 0.0000e+00 - total_loss: 6.9011
-102/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9006 - regularization_loss: 0.0000e+00 - total_loss: 6.9006
-122/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.9003 - regularization_loss: 0.0000e+00 - total_loss: 6.9003
-143/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8999 - regularization_loss: 0.0000e+00 - total_loss: 6.8999
-163/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8996 - regularization_loss: 0.0000e+00 - total_loss: 6.8996
-184/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8992 - regularization_loss: 0.0000e+00 - total_loss: 6.8992
-205/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8989 - regularization_loss: 0.0000e+00 - total_loss: 6.8989
-226/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8984 - regularization_loss: 0.0000e+00 - total_loss: 6.8984
-247/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8981 - regularization_loss: 0.0000e+00 - total_loss: 6.8981
-269/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8977 - regularization_loss: 0.0000e+00 - total_loss: 6.8977
-288/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8973 - regularization_loss: 0.0000e+00 - total_loss: 6.8973
-309/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8969 - regularization_loss: 0.0000e+00 - total_loss: 6.8969
-329/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8965 - regularization_loss: 0.0000e+00 - total_loss: 6.8965
-350/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8961 - regularization_loss: 0.0000e+00 - total_loss: 6.8961
-370/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8958 - regularization_loss: 0.0000e+00 - total_loss: 6.8958
-391/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8954 - regularization_loss: 0.0000e+00 - total_loss: 6.8954
-412/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8950 - regularization_loss: 0.0000e+00 - total_loss: 6.8950
-431/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8947 - regularization_loss: 0.0000e+00 - total_loss: 6.8947
-451/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8943 - regularization_loss: 0.0000e+00 - total_loss: 6.8943
-472/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8939 - regularization_loss: 0.0000e+00 - total_loss: 6.8939
-491/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8935 - regularization_loss: 0.0000e+00 - total_loss: 6.8935
-512/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8931 - regularization_loss: 0.0000e+00 - total_loss: 6.8931
-532/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8927 - regularization_loss: 0.0000e+00 - total_loss: 6.8927
-553/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8923 - regularization_loss: 0.0000e+00 - total_loss: 6.8923
-573/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8918 - regularization_loss: 0.0000e+00 - total_loss: 6.8918
-594/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8914 - regularization_loss: 0.0000e+00 - total_loss: 6.8914
-614/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8910 - regularization_loss: 0.0000e+00 - total_loss: 6.8910
-635/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8906 - regularization_loss: 0.0000e+00 - total_loss: 6.8906
-656/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8902 - regularization_loss: 0.0000e+00 - total_loss: 6.8902
-678/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8897 - regularization_loss: 0.0000e+00 - total_loss: 6.8897
-697/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8894 - regularization_loss: 0.0000e+00 - total_loss: 6.8894
-718/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8890 - regularization_loss: 0.0000e+00 - total_loss: 6.8890
-737/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8886 - regularization_loss: 0.0000e+00 - total_loss: 6.8886
-758/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8881 - regularization_loss: 0.0000e+00 - total_loss: 6.8881
-778/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8878 - regularization_loss: 0.0000e+00 - total_loss: 6.8878
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8854 - regularization_loss: 0.0000e+00 - total_loss: 6.8854 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.7657 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.7657
-Epoch 7/8
+  1/210 [..............................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+ 18/210 [=>............................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 35/210 [====>.........................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 51/210 [======>.......................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 67/210 [========>.....................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+ 84/210 [===========>..................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+101/210 [=============>................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+117/210 [===============>..............] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+129/210 [=================>............] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+145/210 [===================>..........] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+162/210 [======================>.......] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+180/210 [========================>.....] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+196/210 [===========================>..] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+210/210 [==============================] - 1s 3ms/step - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
 
-  1/782 [..............................] - ETA: 3s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8779 - regularization_loss: 0.0000e+00 - total_loss: 6.8779
- 21/782 [..............................] - ETA: 2s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8707 - regularization_loss: 0.0000e+00 - total_loss: 6.8707
- 42/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8703 - regularization_loss: 0.0000e+00 - total_loss: 6.8703
- 62/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8701 - regularization_loss: 0.0000e+00 - total_loss: 6.8701
- 83/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8694 - regularization_loss: 0.0000e+00 - total_loss: 6.8694
-104/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8686 - regularization_loss: 0.0000e+00 - total_loss: 6.8686
-125/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8683 - regularization_loss: 0.0000e+00 - total_loss: 6.8683
-145/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8679 - regularization_loss: 0.0000e+00 - total_loss: 6.8679
-166/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8672 - regularization_loss: 0.0000e+00 - total_loss: 6.8672
-183/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8668 - regularization_loss: 0.0000e+00 - total_loss: 6.8668
-203/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8664 - regularization_loss: 0.0000e+00 - total_loss: 6.8664
-223/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8659 - regularization_loss: 0.0000e+00 - total_loss: 6.8659
-244/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8655 - regularization_loss: 0.0000e+00 - total_loss: 6.8655
-264/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8650 - regularization_loss: 0.0000e+00 - total_loss: 6.8650
-284/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8645 - regularization_loss: 0.0000e+00 - total_loss: 6.8645
-304/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8641 - regularization_loss: 0.0000e+00 - total_loss: 6.8641
-325/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8635 - regularization_loss: 0.0000e+00 - total_loss: 6.8635
-345/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8631 - regularization_loss: 0.0000e+00 - total_loss: 6.8631
-366/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8627 - regularization_loss: 0.0000e+00 - total_loss: 6.8627
-385/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8623 - regularization_loss: 0.0000e+00 - total_loss: 6.8623
-404/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8620 - regularization_loss: 0.0000e+00 - total_loss: 6.8620
-424/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8615 - regularization_loss: 0.0000e+00 - total_loss: 6.8615
-444/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8611 - regularization_loss: 0.0000e+00 - total_loss: 6.8611
-464/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8607 - regularization_loss: 0.0000e+00 - total_loss: 6.8607
-484/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8602 - regularization_loss: 0.0000e+00 - total_loss: 6.8602
-504/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8597 - regularization_loss: 0.0000e+00 - total_loss: 6.8597
-522/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8594 - regularization_loss: 0.0000e+00 - total_loss: 6.8594
-541/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8589 - regularization_loss: 0.0000e+00 - total_loss: 6.8589
-562/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8584 - regularization_loss: 0.0000e+00 - total_loss: 6.8584
-581/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8580 - regularization_loss: 0.0000e+00 - total_loss: 6.8580
-601/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8575 - regularization_loss: 0.0000e+00 - total_loss: 6.8575
-622/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8571 - regularization_loss: 0.0000e+00 - total_loss: 6.8571
-642/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8566 - regularization_loss: 0.0000e+00 - total_loss: 6.8566
-663/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8561 - regularization_loss: 0.0000e+00 - total_loss: 6.8561
-683/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8557 - regularization_loss: 0.0000e+00 - total_loss: 6.8557
-704/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8553 - regularization_loss: 0.0000e+00 - total_loss: 6.8553
-724/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8548 - regularization_loss: 0.0000e+00 - total_loss: 6.8548
-745/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8543 - regularization_loss: 0.0000e+00 - total_loss: 6.8543
-765/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8539 - regularization_loss: 0.0000e+00 - total_loss: 6.8539
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8513 - regularization_loss: 0.0000e+00 - total_loss: 6.8513 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.7337 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.7337
-Epoch 8/8
+Evaluating with negative sampling (1 + 99) ...
 
-  1/782 [..............................] - ETA: 2s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8429 - regularization_loss: 0.0000e+00 - total_loss: 6.8429
- 22/782 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8364 - regularization_loss: 0.0000e+00 - total_loss: 6.8364
- 43/782 [>.............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8352 - regularization_loss: 0.0000e+00 - total_loss: 6.8352
- 62/782 [=>............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8348 - regularization_loss: 0.0000e+00 - total_loss: 6.8348
- 83/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8341 - regularization_loss: 0.0000e+00 - total_loss: 6.8341
-103/782 [==>...........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8331 - regularization_loss: 0.0000e+00 - total_loss: 6.8331
-124/782 [===>..........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8327 - regularization_loss: 0.0000e+00 - total_loss: 6.8327
-143/782 [====>.........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8323 - regularization_loss: 0.0000e+00 - total_loss: 6.8323
-163/782 [=====>........................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8317 - regularization_loss: 0.0000e+00 - total_loss: 6.8317
-184/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8313 - regularization_loss: 0.0000e+00 - total_loss: 6.8313
-204/782 [======>.......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8308 - regularization_loss: 0.0000e+00 - total_loss: 6.8308
-223/782 [=======>......................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8304 - regularization_loss: 0.0000e+00 - total_loss: 6.8304
-244/782 [========>.....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8301 - regularization_loss: 0.0000e+00 - total_loss: 6.8301
-265/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8295 - regularization_loss: 0.0000e+00 - total_loss: 6.8295
-285/782 [=========>....................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8292 - regularization_loss: 0.0000e+00 - total_loss: 6.8292
-306/782 [==========>...................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8286 - regularization_loss: 0.0000e+00 - total_loss: 6.8286
-327/782 [===========>..................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8281 - regularization_loss: 0.0000e+00 - total_loss: 6.8281
-340/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8278 - regularization_loss: 0.0000e+00 - total_loss: 6.8278
-360/782 [============>.................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8274 - regularization_loss: 0.0000e+00 - total_loss: 6.8274
-381/782 [=============>................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8270 - regularization_loss: 0.0000e+00 - total_loss: 6.8270
-401/782 [==============>...............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8268 - regularization_loss: 0.0000e+00 - total_loss: 6.8268
-422/782 [===============>..............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8262 - regularization_loss: 0.0000e+00 - total_loss: 6.8262
-444/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8258 - regularization_loss: 0.0000e+00 - total_loss: 6.8258
-463/782 [================>.............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8254 - regularization_loss: 0.0000e+00 - total_loss: 6.8254
-483/782 [=================>............] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8250 - regularization_loss: 0.0000e+00 - total_loss: 6.8250
-504/782 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8245 - regularization_loss: 0.0000e+00 - total_loss: 6.8245
-525/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8241 - regularization_loss: 0.0000e+00 - total_loss: 6.8241
-546/782 [===================>..........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8236 - regularization_loss: 0.0000e+00 - total_loss: 6.8236
-566/782 [====================>.........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8232 - regularization_loss: 0.0000e+00 - total_loss: 6.8232
-587/782 [=====================>........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8227 - regularization_loss: 0.0000e+00 - total_loss: 6.8227
-607/782 [======================>.......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8223 - regularization_loss: 0.0000e+00 - total_loss: 6.8223
-628/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8219 - regularization_loss: 0.0000e+00 - total_loss: 6.8219
-649/782 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8215 - regularization_loss: 0.0000e+00 - total_loss: 6.8215
-670/782 [========================>.....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8210 - regularization_loss: 0.0000e+00 - total_loss: 6.8210
-690/782 [=========================>....] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8206 - regularization_loss: 0.0000e+00 - total_loss: 6.8206
-711/782 [==========================>...] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8202 - regularization_loss: 0.0000e+00 - total_loss: 6.8202
-732/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8198 - regularization_loss: 0.0000e+00 - total_loss: 6.8198
-753/782 [===========================>..] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8193 - regularization_loss: 0.0000e+00 - total_loss: 6.8193
-774/782 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8190 - regularization_loss: 0.0000e+00 - total_loss: 6.8190
-782/782 [==============================] - 2s 3ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8165 - regularization_loss: 0.0000e+00 - total_loss: 6.8165 - val_top_k_categorical_accuracy: 0.0000e+00 - val_loss: 5.7028 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.7028
-
-Evaluating the model with TFRS...
-
-  1/196 [..............................] - ETA: 1s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8042 - regularization_loss: 0.0000e+00 - total_loss: 6.8042
- 34/196 [====>.........................] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8095 - regularization_loss: 0.0000e+00 - total_loss: 6.8095
- 65/196 [========>.....................] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8100 - regularization_loss: 0.0000e+00 - total_loss: 6.8100
- 97/196 [=============>................] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8098 - regularization_loss: 0.0000e+00 - total_loss: 6.8098
-129/196 [==================>...........] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8097 - regularization_loss: 0.0000e+00 - total_loss: 6.8097
-161/196 [=======================>......] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8094 - regularization_loss: 0.0000e+00 - total_loss: 6.8094
-193/196 [============================>.] - ETA: 0s - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.8095 - regularization_loss: 0.0000e+00 - total_loss: 6.8095
-196/196 [==============================] - 0s 2ms/step - top_k_categorical_accuracy: 0.0000e+00 - loss: 6.7983 - regularization_loss: 0.0000e+00 - total_loss: 6.7983
-Evaluation: {'top_k_categorical_accuracy': 0.0, 'loss': 5.702757835388184, 'regularization_loss': 0, 'total_loss': 5.702757835388184}
-
-Computing Hit Rate and NDCG...
-
------ Hit Rate and NDCG Metrics -----
-Hit Rate (Top-1): 0.0055
-NDCG     (Top-1): 0.0055
-Hit Rate (Top-3): 0.0136
-NDCG     (Top-3): 0.0101
-Hit Rate (Top-5): 0.0232
-NDCG     (Top-5): 0.0140
-Hit Rate (Top-10): 0.0427
-NDCG     (Top-10): 0.0203
-
-Building brute-force index...
-Item IDs tensor shape: (3683,)
-All item embeddings shape: (3683, 32)
-Successfully indexed embeddings!
-
-Recommendations for user 1:
-Top-10 items: ['260', '1196', '1270', '1097', '1198', '1210', '541', '1197', '1240', '912']
-User has interacted with 0 items in training.
-
-ID Mapping Examples:
-User: Original=1, IntID=1
-User: Original=10, IntID=2
-User: Original=100, IntID=3
-User: Original=1000, IntID=4
-User: Original=1001, IntID=5
-Item: Original=1, IntID=1
-Item: Original=10, IntID=2
-Item: Original=100, IntID=3
-Item: Original=1000, IntID=4
-Item: Original=1002, IntID=5
+Evaluation Results (rating=5, 10-core, LOO, 1+99):
+========================================
+k         HitRate        NDCG           
+----------------------------------------
+1         0.0110     0.0110
+3         0.0293     0.0214
+5         0.0550     0.0319
+10        0.1126     0.0503
+========================================
