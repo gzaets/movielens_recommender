@@ -1,122 +1,135 @@
-Ratings shape: (100000, 4)
+After leave-one-out split:
+Train size: 99057 Test size: 943
 Users shape: (943, 5)
 Items shape: (1682, 24)
-Train size: 80000 Test size: 20000
-Number of cold users in test: 0
-Number of warm users in test: 940
-Loaded augmented data with 943 entries
-Adding positive examples to augmented data...
-Train size after filtering: 80000
-Test size after filtering: 19969
-Augmented size after filtering: 1043
-Number of unique users: 943
-Number of unique items: 1653
-Training the model on the original training dataset...
-Epoch 1/10
 
-[1m 1/79[0m [37m====================[0m [1m30s[0m 386ms/step - loss: 6.9314 - regularization_loss: 0.0000e+00 - total_loss: 6.9314
-[1m20/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316   
-[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.9316 - regularization_loss: 0.0000e+00 - total_loss: 6.9316
-[1m79/79[0m [32m====================[0m[37m[0m [1m1s[0m 4ms/step - loss: 6.8796 - regularization_loss: 0.0000e+00 - total_loss: 6.8796 - val_loss: 6.2406 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2406
-Epoch 2/10
+Original train size: 99057, test size: 943
+Unique users mapped: 943, unique items mapped: 1682
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.9275 - regularization_loss: 0.0000e+00 - total_loss: 6.9275
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9294 - regularization_loss: 0.0000e+00 - total_loss: 6.9294
-[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.9292 - regularization_loss: 0.0000e+00 - total_loss: 6.9292
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8767 - regularization_loss: 0.0000e+00 - total_loss: 6.8767 - val_loss: 6.2388 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2388
-Epoch 3/10
+Scenario A: 81253 training rows (each cold user has 1 real interaction)
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.9220 - regularization_loss: 0.0000e+00 - total_loss: 6.9220
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.9233 - regularization_loss: 0.0000e+00 - total_loss: 6.9233 
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.9215 - regularization_loss: 0.0000e+00 - total_loss: 6.9215
-[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.9192 - regularization_loss: 0.0000e+00 - total_loss: 6.9192
-[1m76/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.9163 - regularization_loss: 0.0000e+00 - total_loss: 6.9163
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8633 - regularization_loss: 0.0000e+00 - total_loss: 6.8633 - val_loss: 6.2208 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.2208
-Epoch 4/10
+--- Training Scenario A model (5 epochs) ---
+Epoch 1/5
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.8921 - regularization_loss: 0.0000e+00 - total_loss: 6.8921
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.8899 - regularization_loss: 0.0000e+00 - total_loss: 6.8899
-[1m40/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.8819 - regularization_loss: 0.0000e+00 - total_loss: 6.8819
-[1m59/79[0m [32m==============[0m[37m======[0m [1m0s[0m 3ms/step - loss: 6.8730 - regularization_loss: 0.0000e+00 - total_loss: 6.8730
-[1m78/79[0m [32m===================[0m[37m=[0m [1m0s[0m 3ms/step - loss: 6.8628 - regularization_loss: 0.0000e+00 - total_loss: 6.8628
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.8100 - regularization_loss: 0.0000e+00 - total_loss: 6.8100 - val_loss: 6.1638 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.1638
-Epoch 5/10
+ 1/80 [..............................] - ETA: 29s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+14/80 [====>.........................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119 
+27/80 [=========>....................] - ETA: 0s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+40/80 [==============>...............] - ETA: 0s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+54/80 [===================>..........] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+67/80 [========================>.....] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+80/80 [==============================] - 1s 4ms/step - loss: 0.0124 - regularization_loss: 0.0000e+00 - total_loss: 0.0124
+Epoch 2/5
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.8056 - regularization_loss: 0.0000e+00 - total_loss: 6.8056
-[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.8027 - regularization_loss: 0.0000e+00 - total_loss: 6.8027
-[1m43/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 2ms/step - loss: 6.7897 - regularization_loss: 0.0000e+00 - total_loss: 6.7897
-[1m64/79[0m [32m================[0m[37m====[0m [1m0s[0m 2ms/step - loss: 6.7783 - regularization_loss: 0.0000e+00 - total_loss: 6.7783
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.7169 - regularization_loss: 0.0000e+00 - total_loss: 6.7169 - val_loss: 6.0962 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0962
-Epoch 6/10
+ 1/80 [..............................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+16/80 [=====>........................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+30/80 [==========>...................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+44/80 [===============>..............] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+59/80 [=====================>........] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+73/80 [==========================>...] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+80/80 [==============================] - 0s 4ms/step - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+Epoch 3/5
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.7050 - regularization_loss: 0.0000e+00 - total_loss: 6.7050
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.7101 - regularization_loss: 0.0000e+00 - total_loss: 6.7101
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.7016 - regularization_loss: 0.0000e+00 - total_loss: 6.7016
-[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.6929 - regularization_loss: 0.0000e+00 - total_loss: 6.6929
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.6322 - regularization_loss: 0.0000e+00 - total_loss: 6.6322 - val_loss: 6.0440 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0440
-Epoch 7/10
+ 1/80 [..............................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+14/80 [====>.........................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+28/80 [=========>....................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+40/80 [==============>...............] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+53/80 [==================>...........] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+68/80 [========================>.....] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+80/80 [==============================] - 0s 4ms/step - loss: 0.0117 - regularization_loss: 0.0000e+00 - total_loss: 0.0117
+Epoch 4/5
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.6297 - regularization_loss: 0.0000e+00 - total_loss: 6.6297
-[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.6385 - regularization_loss: 0.0000e+00 - total_loss: 6.6385 
-[1m43/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 2ms/step - loss: 6.6322 - regularization_loss: 0.0000e+00 - total_loss: 6.6322
-[1m63/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 2ms/step - loss: 6.6274 - regularization_loss: 0.0000e+00 - total_loss: 6.6274
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5684 - regularization_loss: 0.0000e+00 - total_loss: 6.5684 - val_loss: 6.0069 - val_regularization_loss: 0.0000e+00 - val_total_loss: 6.0069
-Epoch 8/10
+ 1/80 [..............................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+15/80 [====>.........................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+29/80 [=========>....................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+43/80 [===============>..............] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+57/80 [====================>.........] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+73/80 [==========================>...] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+80/80 [==============================] - 0s 4ms/step - loss: 0.0116 - regularization_loss: 0.0000e+00 - total_loss: 0.0116
+Epoch 5/5
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 9ms/step - loss: 6.5728 - regularization_loss: 0.0000e+00 - total_loss: 6.5728
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5855 - regularization_loss: 0.0000e+00 - total_loss: 6.5855
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5827 - regularization_loss: 0.0000e+00 - total_loss: 6.5827
-[1m60/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5784 - regularization_loss: 0.0000e+00 - total_loss: 6.5784
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.5192 - regularization_loss: 0.0000e+00 - total_loss: 6.5192 - val_loss: 5.9801 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9801
-Epoch 9/10
+ 1/80 [..............................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+16/80 [=====>........................] - ETA: 0s - loss: 0.0109 - regularization_loss: 0.0000e+00 - total_loss: 0.0109
+31/80 [==========>...................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+46/80 [================>.............] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+61/80 [=====================>........] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+75/80 [===========================>..] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+80/80 [==============================] - 0s 3ms/step - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.5264 - regularization_loss: 0.0000e+00 - total_loss: 6.5264
-[1m21/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 3ms/step - loss: 6.5429 - regularization_loss: 0.0000e+00 - total_loss: 6.5429 
-[1m41/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5416 - regularization_loss: 0.0000e+00 - total_loss: 6.5416
-[1m61/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5378 - regularization_loss: 0.0000e+00 - total_loss: 6.5378
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4792 - regularization_loss: 0.0000e+00 - total_loss: 6.4792 - val_loss: 5.9601 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9601
-Epoch 10/10
+Evaluating Scenario A model (Negative Sampling LOO)...
+==== Results: Scenario A (Cold = 1 Real) ====
+ HR@1=0.0138, NDCG@1=0.0138
+ HR@3=0.0435, NDCG@3=0.0304
+ HR@5=0.0689, NDCG@5=0.0409
+ HR@10=0.1241, NDCG@10=0.0583
+=============================================
 
-[1m 1/79[0m [37m====================[0m [1m0s[0m 10ms/step - loss: 6.4881 - regularization_loss: 0.0000e+00 - total_loss: 6.4881
-[1m22/79[0m [32m=====[0m[37m===============[0m [1m0s[0m 2ms/step - loss: 6.5076 - regularization_loss: 0.0000e+00 - total_loss: 6.5076 
-[1m42/79[0m [32m==========[0m[37m==========[0m [1m0s[0m 3ms/step - loss: 6.5067 - regularization_loss: 0.0000e+00 - total_loss: 6.5067
-[1m62/79[0m [32m===============[0m[37m=====[0m [1m0s[0m 3ms/step - loss: 6.5046 - regularization_loss: 0.0000e+00 - total_loss: 6.5046
-[1m79/79[0m [32m====================[0m[37m[0m [1m0s[0m 3ms/step - loss: 6.4455 - regularization_loss: 0.0000e+00 - total_loss: 6.4455 - val_loss: 5.9449 - val_regularization_loss: 0.0000e+00 - val_total_loss: 5.9449
-Evaluating on original test data...
+Loaded augmented dataset with 943 rows.
+Augmented rows for cold users: 188
+Scenario B: 81441 rows (cold has 1 real + augmented items)
 
-[1m 1/20[0m [32m=[0m[37m===================[0m [1m0s[0m 5ms/step - loss: 6.5939 - regularization_loss: 0.0000e+00 - total_loss: 6.5939
-[1m20/20[0m [32m====================[0m[37m[0m [1m0s[0m 2ms/step - loss: 6.5283 - regularization_loss: 0.0000e+00 - total_loss: 6.5283
+--- Training Scenario B model (5 epochs) ---
+Epoch 1/5
 
-Original test evaluation loss: {'loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.944903373718262>, 'regularization_loss': <tf.Tensor: shape=(), dtype=int32, numpy=0>, 'total_loss': <tf.Tensor: shape=(), dtype=float32, numpy=5.944903373718262>}
+ 1/80 [..............................] - ETA: 11s - loss: 0.0120 - regularization_loss: 0.0000e+00 - total_loss: 0.0120
+15/80 [====>.........................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119 
+31/80 [==========>...................] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+46/80 [================>.............] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+63/80 [======================>.......] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+79/80 [============================>.] - ETA: 0s - loss: 0.0119 - regularization_loss: 0.0000e+00 - total_loss: 0.0119
+80/80 [==============================] - 0s 3ms/step - loss: 0.0121 - regularization_loss: 0.0000e+00 - total_loss: 0.0121
+Epoch 2/5
 
------ Original Test Data Metrics -----
-Hit Rate (Top-1): 0.0024
-NDCG (Top-1): 0.0024
-Hit Rate (Top-3): 0.0079
-NDCG (Top-3): 0.0055
-Hit Rate (Top-5): 0.0150
-NDCG (Top-5): 0.0084
-Hit Rate (Top-10): 0.0291
-NDCG (Top-10): 0.0129
+ 1/80 [..............................] - ETA: 0s - loss: 0.0114 - regularization_loss: 0.0000e+00 - total_loss: 0.0114
+17/80 [=====>........................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+31/80 [==========>...................] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+45/80 [===============>..............] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+60/80 [=====================>........] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+75/80 [===========================>..] - ETA: 0s - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+80/80 [==============================] - 0s 3ms/step - loss: 0.0117 - regularization_loss: 0.0000e+00 - total_loss: 0.0117
+Epoch 3/5
 
-Building recommendation index...
-Item IDs tensor shape: (1653,)
-All item embeddings shape: (1653, 32)
-Successfully indexed embeddings!
+ 1/80 [..............................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+16/80 [=====>........................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+30/80 [==========>...................] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+46/80 [================>.............] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+61/80 [=====================>........] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+78/80 [============================>.] - ETA: 0s - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+80/80 [==============================] - 0s 3ms/step - loss: 0.0115 - regularization_loss: 0.0000e+00 - total_loss: 0.0115
+Epoch 4/5
 
-Recommendations for example user 1
-Top 10 recommended items: ['184', '17', '47', '39', '42', '789', '101', '128', '92', '217']
+ 1/80 [..............................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+16/80 [=====>........................] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+33/80 [===========>..................] - ETA: 0s - loss: 0.0111 - regularization_loss: 0.0000e+00 - total_loss: 0.0111
+49/80 [=================>............] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+65/80 [=======================>......] - ETA: 0s - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+80/80 [==============================] - 0s 3ms/step - loss: 0.0113 - regularization_loss: 0.0000e+00 - total_loss: 0.0113
+Epoch 5/5
 
-ID Mapping Examples:
-User: Original ID=1, Integer ID=1
-User: Original ID=10, Integer ID=2
-User: Original ID=100, Integer ID=3
-User: Original ID=101, Integer ID=4
-User: Original ID=102, Integer ID=5
-Item: Original ID=1, Integer ID=1
-Item: Original ID=10, Integer ID=2
-Item: Original ID=100, Integer ID=3
-Item: Original ID=1000, Integer ID=4
-Item: Original ID=1001, Integer ID=5
+ 1/80 [..............................] - ETA: 0s - loss: 0.0108 - regularization_loss: 0.0000e+00 - total_loss: 0.0108
+16/80 [=====>........................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+32/80 [===========>..................] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+48/80 [=================>............] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+65/80 [=======================>......] - ETA: 0s - loss: 0.0110 - regularization_loss: 0.0000e+00 - total_loss: 0.0110
+80/80 [==============================] - 0s 3ms/step - loss: 0.0112 - regularization_loss: 0.0000e+00 - total_loss: 0.0112
+
+Evaluating Scenario B model (1 real + augmented) ...
+==== Results: Scenario B (Cold = 1 Real + Augmented) ====
+ HR@1=0.0074, NDCG@1=0.0074
+ HR@3=0.0276, NDCG@3=0.0190
+ HR@5=0.0562, NDCG@5=0.0308
+ HR@10=0.1166, NDCG@10=0.0499
+=========================================================
+
+=============== FINAL SUMMARY ===============
+Scenario A: cold = 1 real interaction
+   HR@1=0.0138, NDCG@1=0.0138
+   HR@3=0.0435, NDCG@3=0.0304
+   HR@5=0.0689, NDCG@5=0.0409
+   HR@10=0.1241, NDCG@10=0.0583
+
+Scenario B: cold = 1 real + augmented rows
+   HR@1=0.0074, NDCG@1=0.0074
+   HR@3=0.0276, NDCG@3=0.0190
+   HR@5=0.0562, NDCG@5=0.0308
+   HR@10=0.1166, NDCG@10=0.0499
+=============================================
